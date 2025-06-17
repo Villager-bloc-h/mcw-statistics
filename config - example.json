@@ -1,3 +1,9 @@
 {
-    "user_agent": "(换成你自己的名字和联系方式)"
+    "wiki": "zh",
+    "user_agent": "(换成你自己的名字和联系方式)",
+    "difftime": {
+        "num_diff": "114514",
+        "minrev": "",
+        "maxrev": "1919810"
+    }
 }
