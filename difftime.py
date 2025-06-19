@@ -9,15 +9,30 @@ import base
 
 api_url = base.WIKI_API_URL + "?action=compare&format=json&prop=timestamp&formatversion=2"
 num_diff, minrev, maxrev = base.difftime_get_config()
+
+if minrev > maxrev:
+    print("minrev大于maxrev，已重置为1和当前最大revid")
+    minrev = None
+    maxrev = None
+
 if minrev is None:
     minrev = 1
+elif minrev < 1:
+    print("minrev超出范围，已重置为1")
+    minrev = 1
+
+current_maxrev = base.get_last_diff()['query']['recentchanges'][0]['revid']
+
 if maxrev is None:
-    maxrev = base.get_last_diff()['query']['recentchanges'][0]['revid']
+    maxrev = current_maxrev
+elif maxrev > current_maxrev:
+    print("maxrev超出范围，已重置为当前最大revid")
+    maxrev = current_maxrev
 
 rev = minrev
 
-if os.path.exists("difftime_temp_backup.xlsx"): # 恢复上次中断时保存的内容
-    wb = openpyxl.load_workbook("difftime_temp_backup.xlsx")
+if os.path.exists("difftime_backup.xlsx"): # 恢复上次中断时保存的内容
+    wb = openpyxl.load_workbook("difftime_backup.xlsx")
     ws = wb.active
     date_style = NamedStyle(name="date_style", number_format="YYYY-MM-DD")
     wb.add_named_style(date_style)
@@ -65,7 +80,7 @@ while rev < maxrev: # 主循环
         torev = rev
 
         if row % 100 == 0:
-            wb.save("difftime_temp_backup.xlsx")
+            wb.save("difftime_backup.xlsx")
             print(f"已保存进度至revid：{fromrev}")
 
     elif rev - fromrev > 5 or torev - rev > 5: # 防止大量修订数据被删除时拖慢程序速度
@@ -90,4 +105,4 @@ while rev < maxrev: # 主循环
             torev = torev + 1
 
 current_time = datetime.now().strftime("%H%M%S")
-wb.save(f"output-{current_time}.xlsx")
+wb.save(f"difftime-{current_time}.xlsx")
