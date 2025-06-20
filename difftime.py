@@ -64,8 +64,10 @@ while rev < maxrev: # 主循环
         row = ws.max_row + 1
         fromtimestamp = data['compare']['fromtimestamp']
         totimestamp = data['compare']['totimestamp']
-        year1, month1, day1, hour1, minute1, second1 = base.extract_from_timestamp(fromtimestamp)
-        year2, month2, day2, hour2, minute2, second2 = base.extract_from_timestamp(totimestamp)
+        dt1 = base.extract_from_timestamp(fromtimestamp)
+        dt2 = base.extract_from_timestamp(totimestamp)
+        year1, month1, day1 = dt1.year, dt1.month, dt1.day
+        year2, month2, day2 = dt2.year, dt2.month, dt2.day
         from_date_obj = datetime(year1, month1, day1)
 
         if year1 != year2 or month1 != month2 or day1 != day2:
