@@ -10,11 +10,6 @@ import base
 api_url = base.WIKI_API_URL + "?action=compare&format=json&prop=timestamp&formatversion=2"
 num_diff, minrev, maxrev = base.difftime_get_config()
 
-if minrev > maxrev:
-    print("minrev大于maxrev，已重置为1和当前最大revid")
-    minrev = None
-    maxrev = None
-
 if minrev is None:
     minrev = 1
 elif minrev < 1:
@@ -27,6 +22,11 @@ if maxrev is None:
     maxrev = current_maxrev
 elif maxrev > current_maxrev:
     print("maxrev超出范围，已重置为当前最大revid")
+    maxrev = current_maxrev
+
+if minrev > maxrev:
+    print("minrev大于maxrev，已重置为1和当前最大revid")
+    minrev = 1
     maxrev = current_maxrev
 
 rev = minrev
@@ -106,5 +106,5 @@ while rev < maxrev: # 主循环
         if 'error' in torev_data and torev < maxrev:
             torev = torev + 1
 
-current_time = datetime.now().strftime("%H%M%S")
+current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 wb.save(f"difftime-{current_time}.xlsx")
