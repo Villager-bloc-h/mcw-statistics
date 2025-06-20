@@ -9,6 +9,7 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     config = json.load(config_file)
     wiki = config["wiki"]
     user_agent = config["user_agent"]
+    timezone = config["timezone"]
 
 if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
     print("不存在此语言的Minecraft Wiki！")
@@ -40,6 +41,11 @@ def usercontribs_get_config(): # usercontribs.py读取配置
     ucstart = usercontribs_config.get("endtime")
     return username, ucend, ucstart
 
+def editperiod_get_config(): # editperiod.py读取配置
+    editperiod_config = config.get("editperiod", {})
+    datafile = editperiod_config.get("datafile")
+    return datafile
+
 def get_data(api_url): # 从Mediawiki API获取数据
     tries = 0
     while 1:
@@ -62,11 +68,10 @@ def get_last_diff(): # 获取当前最大revid
     api_url = WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=ids&rclimit=1&rctype=edit|new"
     return get_data(api_url)
 
-def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UTC时间改为UTC+8
+def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UTC时间改为当前时区
     # 时间格式：2025-06-16T12:24:55Z
     dt = datetime.datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%SZ")
 
-    dt = dt + datetime.timedelta(hours=8)
+    dt = dt + datetime.timedelta(hours=timezone)
 
-    return (dt.year, dt.month, dt.day,
-            dt.hour, dt.minute, dt.second)
+    return dt
