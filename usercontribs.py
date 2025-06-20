@@ -22,7 +22,7 @@ loop_count = 0
 print("启动成功", end='\n\n')
 
 while True:
-    time.sleep(1)
+    time.sleep(3)
 
     if last_uccontinue != "":
         last_api_url = api_url + "&uccontinue=" + last_uccontinue
