@@ -1,5 +1,6 @@
 {
     "wiki": "zh",
+    "timezone": "8",
     "user_agent": "(换成你自己的名字和联系方式)",
     "difftime": {
         "num_diff": "114514",
@@ -10,5 +11,8 @@
         "username": "MediaWiki_default-gpuser",
         "starttime": "2000-12-03T19:09:19Z",
         "endtime": ""
+    },
+    "editperiod": {
+        "datafile": "usercontribs-theuser-20250620204213"
     }
 }
