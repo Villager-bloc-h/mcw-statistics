@@ -51,6 +51,8 @@ else:
 fromrev = rev
 torev = rev
 
+print("启动成功", end='\n\n')
+
 while rev < maxrev: # 主循环
     time.sleep(1)
 
