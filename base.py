@@ -5,7 +5,7 @@ import time
 import requests
 import datetime
 
-with open("config.json", "r") as config_file:
+with open("config.json", "r", encoding="utf-8") as config_file:
     config = json.load(config_file)
     wiki = config["wiki"]
     user_agent = config["user_agent"]
@@ -32,6 +32,13 @@ def difftime_get_config(): # difftime.py读取配置
     maxrev = int(maxrev_val) if maxrev_val and maxrev_val.strip() != '' else None
 
     return num_diff, minrev, maxrev
+
+def usercontribs_get_config(): # usercontribs.py读取配置
+    usercontribs_config = config.get("usercontribs", {})
+    username = usercontribs_config.get("username")
+    ucend = usercontribs_config.get("starttime")
+    ucstart = usercontribs_config.get("endtime")
+    return username, ucend, ucstart
 
 def get_data(api_url): # 从Mediawiki API获取数据
     tries = 0
