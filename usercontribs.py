@@ -54,3 +54,6 @@ contribs_result = contribs_result[::-1]
 current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 with open(f'usercontribs-{username}-{current_time}.json', 'w', encoding='utf-8') as file:
     json.dump(contribs_result, file, ensure_ascii=False, indent=4)
+
+print(f"结果已保存至usercontribs-{username}-{current_time}.json")
+input("按任意键退出")
