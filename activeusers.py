@@ -4,12 +4,29 @@ import openpyxl
 
 import base
 
-current_dt = datetime.now()
-end_dt = current_dt - timedelta(hours=base.timezone)
-end_timestamp = end_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+usergroup_order, usergroup_mapping = base.activeusers_get_config()
 
-start_dt = end_dt - timedelta(days=30)
-start_timestamp = start_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+# 指定时间段
+now = datetime.now()
+year = now.year
+month = now.month
+
+if month == 2:
+    start_date = datetime(year, 1, 28)
+    end_date = datetime(year, 2, 25)
+elif month == 3:
+    start_date = datetime(year, 2, 25)
+    end_date = datetime(year, 3, 28)
+else:
+    if month == 1:
+        start_date = datetime(year - 1, 12, 28)
+    else:
+        start_date = datetime(year, month - 1, 28)
+
+    end_date = datetime(year, month, 28)
+
+start_timestamp = start_date.strftime("%Y-%m-%d") + "T00:00:00Z"
+end_timestamp = end_date.strftime("%Y-%m-%d") + "T00:00:00Z"
 
 api_url = base.WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=user|loginfo&rclimit=500&rctype=edit|new|log"
 api_url = api_url + f"&rcstart={end_timestamp}&rcend={start_timestamp}"
@@ -18,6 +35,9 @@ wb = openpyxl.Workbook()
 ws = wb.active
 ws['A1'] = "用户名"
 ws['B1'] = "操作数"
+ws['C1'] = "本地用户组"
+ws.column_dimensions['A'].width = 20.00
+ws.column_dimensions['C'].width = 10.89
 
 user_list = {}
 last_rccontinue = ""
@@ -54,12 +74,50 @@ while True: # 获取过去30天的最近更改详情
 
     last_rccontinue = rc_data['continue']['rccontinue']
 
+    break
+
 print("所有数据已经获取完毕，正在处理中...")
 
-for user, count in user_list.items():
-    row = ws.max_row + 1
-    ws.cell(row=row, column=1, value=user)
-    ws.cell(row=row, column=2, value=count)
+usergroups_api = base.WIKI_API_URL + "?action=query&format=json&list=allusers&formatversion=2&augroup=autopatrol|bot|bureaucrat|interface-admin|patrollers|sysop&auprop=groups&aulimit=500"
+usergroups_data = base.get_data(usergroups_api)
 
-current_timestamp = current_dt.strftime("%Y%m%d%H%M%S")
-wb.save(f"activeusers-{current_timestamp}.xlsx")
+user_permissions = {}
+
+# 置为最高级别用户组
+for user in usergroups_data['query']['allusers']:
+    username = user['name']
+    groups = set(user['groups'])
+
+    highest_perm = None
+    for perm in usergroup_order:
+        if perm in groups:
+            highest_perm = perm
+            break
+
+    user_permissions[username] = highest_perm
+
+sorted_data = []
+
+for user, count in user_list.items(): # 准备排序的数据
+    # 过滤IP用户
+    if base.is_ip_address(user):
+        continue
+
+    # 获取用户组信息
+    usergroup = user_permissions.get(user)
+    group_name = usergroup_mapping[usergroup] if usergroup else "无"
+
+    sorted_data.append((user, count, group_name))
+
+sorted_data.sort(key=lambda x: x[1], reverse=True)
+
+# 将排序后的数据写入工作表
+for row_idx, (user, count, group_name) in enumerate(sorted_data, start=2):
+    ws.cell(row=row_idx, column=1, value=user)
+    ws.cell(row=row_idx, column=2, value=count)
+    ws.cell(row=row_idx, column=3, value=group_name)
+
+wb.save(f"activeusers-{year}-{month}.xlsx")
+
+print(f"结果已保存至activeusers-{year}-{month}.xlsx")
+input("按任意键退出")
