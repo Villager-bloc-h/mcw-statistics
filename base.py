@@ -83,7 +83,7 @@ def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UT
 
     return dt
 
-def is_ip_address(str):
+def is_ip_address(s):
     ipv4_pattern = r'^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
     ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
     ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
@@ -94,7 +94,7 @@ def is_ip_address(str):
     ipv6_compressed = r'^(::|([0-9A-F]{1,4}:){1,7}:)([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4}$' # 压缩格式
 
     return (
-        re.match(ipv4_pattern, str) is not None or
-        re.match(ipv6_pattern, str) is not None or
-        re.match(ipv6_compressed, str) is not None
+        re.match(ipv4_pattern, s) is not None or
+        re.match(ipv6_pattern, s) is not None or
+        re.match(ipv6_compressed, s) is not None
     )
