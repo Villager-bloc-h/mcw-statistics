@@ -4,35 +4,60 @@ import openpyxl
 
 import base
 
+# 读取配置，包括：用户组排列顺序和用户组名称
 usergroup_order, usergroup_mapping = base.activeusers_get_config()
 
-# 指定时间段
+'''
+设置时间段：
+如果当前是2月，那么统计1月28日到2月25日的数据；
+如果当前是3月，那么统计2月25日到3月28日的数据；
+如果不符合上述情况，那么统计上月28日到本月28日的数据。
+
+API只接受UTC时间的时间戳，因此需要根据时区做合适处理。
+'''
 now = datetime.now()
 year = now.year
 month = now.month
-day = 28
+day1 = 28
+day2 = 25
+day = day1 # 此变量用于固定文件名显示的日期
+
+if base.timezone > 0: # 这些时区0点时，UTC时间在上一天
+    day1 -= 1
+    day2 -= 1
 
 if month == 2:
-    start_date = datetime(year, 1, 28)
-    end_date = datetime(year, 2, 25)
-    day = 25
+    start_date = datetime(year, 1, day1)
+    end_date = datetime(year, 2, day2)
+    day = day2
 elif month == 3:
-    start_date = datetime(year, 2, 25)
-    end_date = datetime(year, 3, 28)
+    start_date = datetime(year, 2, day2)
+    end_date = datetime(year, 3, day1)
 else:
     if month == 1:
-        start_date = datetime(year - 1, 12, 28)
+        start_date = datetime(year - 1, 12, day1)
     else:
-        start_date = datetime(year, month - 1, 28)
+        start_date = datetime(year, month - 1, day1)
 
-    end_date = datetime(year, month, 28)
+    end_date = datetime(year, month, day1)
 
-start_timestamp = start_date.strftime("%Y-%m-%d") + "T00:00:00Z"
-end_timestamp = end_date.strftime("%Y-%m-%d") + "T00:00:00Z"
+'''
+day只会有三种情况：
+1. 默认值28，这个时候day1有可能是27或28，不过不重要
+2. 25，这个时候day2也是25，即UTC时间的日期与当前时区的日期相同，因此不需要更改
+3. 24，这个时候day2也是24，即UTC时间的日期是当前时区的日期的前一天，因此需要加1
+'''
+if day == 24:
+    day = 25
+
+hour = (24 - base.timezone) % 24
+start_timestamp = start_date.strftime("%Y-%m-%d") + f"T{hour:02d}:00:00Z"
+end_timestamp = end_date.strftime("%Y-%m-%d") + f"T{hour:02d}:00:00Z"
 
 api_url = base.WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=user|loginfo&rclimit=500&rctype=edit|new|log"
 api_url = api_url + f"&rcstart={end_timestamp}&rcend={start_timestamp}"
 
+# 设置excel表格格式
 wb = openpyxl.Workbook()
 ws = wb.active
 ws['A1'] = "排名"
@@ -51,9 +76,9 @@ print("启动成功", end='\n\n')
 while True: # 获取过去30天的最近更改详情
     time.sleep(3)
 
-    if last_rccontinue != "":
+    if last_rccontinue != "": # 不是首次循环，使用这个继续
         last_api_url = api_url + "&rccontinue=" + last_rccontinue
-    else:
+    else: # 首次循环
         last_api_url = api_url
 
     rc_data = base.get_data(last_api_url)
@@ -72,13 +97,14 @@ while True: # 获取过去30天的最近更改详情
         # 更新计数：存在则+1，不存在则初始化为1
         user_list[username] = user_list.get(username, 0) + 1
 
-    if 'continue' not in rc_data:
+    if 'continue' not in rc_data: # 已经全部获取完成，跳出循环
         break
 
     last_rccontinue = rc_data['continue']['rccontinue']
 
 print("所有数据已经获取完毕，正在处理中...")
 
+# 获取用户组信息
 usergroups_api = base.WIKI_API_URL + "?action=query&format=json&list=allusers&formatversion=2&augroup=autopatrol|bot|bureaucrat|interface-admin|patrollers|sysop&auprop=groups&aulimit=500"
 usergroups_data = base.get_data(usergroups_api)
 
@@ -99,8 +125,8 @@ for user in usergroups_data['query']['allusers']:
 
 sorted_data = []
 
-for user, count in user_list.items(): # 准备排序的数据
-    # 过滤IP用户
+# 过滤IP用户，将用户组信息放入列表
+for user, count in user_list.items():
     if base.is_ip_address(user):
         continue
 
@@ -116,11 +142,11 @@ ranks = []
 current_rank = 1
 prev_count = sorted_data[0][1]
 
+# 添加排名数据
 for i, data in enumerate(sorted_data):
     count = data[1]
-    # 操作数变化时更新当前排名（跳过并列名次）
     if count != prev_count:
-        current_rank = i + 1  # 名次=当前索引+1
+        current_rank = i + 1
     ranks.append(current_rank)
     prev_count = count
 
@@ -136,6 +162,7 @@ excel_filename = f"activeusers-{year}-{month:02d}-{day}.xlsx"
 wb.save(excel_filename)
 print(f"Excel结果已保存至{excel_filename}")
 
+# 将排序后的内容变为wikitable
 start_date_str = f"{start_date.year}年{start_date.month}月{start_date.day}日"
 end_date_str = f"{end_date.year}年{end_date.month}月{end_date.day}日"
 
@@ -146,7 +173,6 @@ wiki_content = '''{| class="wikitable sortable collapsible"
 ''' % (start_date_str, end_date_str)
 
 for idx, (user, count, group_name) in enumerate(sorted_data):
-    # 处理用户组显示
     group_display = group_name
     if group_name != "无":
         group_display = f"[[Minecraft Wiki:{group_name}|{group_name}]]"
@@ -157,6 +183,7 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
 
 wiki_content += "|}"
 
+# 将wikitable写入文本文件
 txt_filename = f"activeusers-{year}-{month:02d}-{day}.txt"
 with open(txt_filename, "w", encoding="utf-8") as f:
     f.write(wiki_content)
