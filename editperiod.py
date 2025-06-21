@@ -55,3 +55,6 @@ for item in contribs_data:
 
 current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 wb.save(f"{username}-editperiod-{current_time}.xlsx")
+
+print(f"结果已保存至{username}-editperiod-{current_time}.xlsx")
+input("按任意键退出")
