@@ -1,6 +1,7 @@
 import json
 import sys
 import time
+import re
 
 import requests
 import datetime
@@ -9,7 +10,7 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     config = json.load(config_file)
     wiki = config["wiki"]
     user_agent = config["user_agent"]
-    timezone = config["timezone"]
+    timezone = int(config["timezone"])
 
 if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
     print("不存在此语言的Minecraft Wiki！")
@@ -46,6 +47,12 @@ def editperiod_get_config(): # editperiod.py读取配置
     datafile = editperiod_config.get("datafile")
     return datafile
 
+def activeusers_get_config(): # activeusers.py读取配置
+    activeusers_config = config.get("activeusers", {})
+    usergroup_order = activeusers_config.get("usergroup_order")
+    usergroup_mapping = activeusers_config.get("usergroup_mapping")
+    return usergroup_order, usergroup_mapping
+
 def get_data(api_url): # 从Mediawiki API获取数据
     tries = 0
     while 1:
@@ -75,3 +82,19 @@ def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UT
     dt = dt + datetime.timedelta(hours=timezone)
 
     return dt
+
+def is_ip_address(str):
+    ipv4_pattern = r'^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
+    ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
+    ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
+    ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$'
+
+    # IPv6仅匹配大写
+    ipv6_pattern = r'^([0-9A-F]{1,4}:){7}[0-9A-F]{1,4}$' # 完整格式
+    ipv6_compressed = r'^(::|([0-9A-F]{1,4}:){1,7}:)([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4}$' # 压缩格式
+
+    return (
+        re.match(ipv4_pattern, str) is not None or
+        re.match(ipv6_pattern, str) is not None or
+        re.match(ipv6_compressed, str) is not None
+    )
