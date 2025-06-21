@@ -10,10 +10,12 @@ usergroup_order, usergroup_mapping = base.activeusers_get_config()
 now = datetime.now()
 year = now.year
 month = now.month
+day = 28
 
 if month == 2:
     start_date = datetime(year, 1, 28)
     end_date = datetime(year, 2, 25)
+    day = 25
 elif month == 3:
     start_date = datetime(year, 2, 25)
     end_date = datetime(year, 3, 28)
@@ -33,11 +35,12 @@ api_url = api_url + f"&rcstart={end_timestamp}&rcend={start_timestamp}"
 
 wb = openpyxl.Workbook()
 ws = wb.active
-ws['A1'] = "用户名"
-ws['B1'] = "操作数"
-ws['C1'] = "本地用户组"
-ws.column_dimensions['A'].width = 20.00
-ws.column_dimensions['C'].width = 10.89
+ws['A1'] = "排名"
+ws['B1'] = "用户名"
+ws['C1'] = "操作数"
+ws['D1'] = "本地用户组"
+ws.column_dimensions['B'].width = 20.00
+ws.column_dimensions['D'].width = 10.89
 
 user_list = {}
 last_rccontinue = ""
@@ -109,13 +112,54 @@ for user, count in user_list.items(): # 准备排序的数据
 
 sorted_data.sort(key=lambda x: x[1], reverse=True)
 
+ranks = []
+current_rank = 1
+prev_count = sorted_data[0][1]
+
+for i, data in enumerate(sorted_data):
+    count = data[1]
+    # 操作数变化时更新当前排名（跳过并列名次）
+    if count != prev_count:
+        current_rank = i + 1  # 名次=当前索引+1
+    ranks.append(current_rank)
+    prev_count = count
+
 # 将排序后的数据写入工作表
-for row_idx, (user, count, group_name) in enumerate(sorted_data, start=2):
-    ws.cell(row=row_idx, column=1, value=user)
-    ws.cell(row=row_idx, column=2, value=count)
-    ws.cell(row=row_idx, column=3, value=group_name)
+for idx, (user, count, group_name) in enumerate(sorted_data):
+    row_idx = idx + 2
+    ws.cell(row=row_idx, column=1, value=ranks[idx] if ranks else idx + 1)
+    ws.cell(row=row_idx, column=2, value=user)
+    ws.cell(row=row_idx, column=3, value=count)
+    ws.cell(row=row_idx, column=4, value=group_name)
 
-wb.save(f"activeusers-{year}-{month}.xlsx")
+excel_filename = f"activeusers-{year}-{month:02d}-{day}.xlsx"
+wb.save(excel_filename)
+print(f"Excel结果已保存至{excel_filename}")
 
-print(f"结果已保存至activeusers-{year}-{month}.xlsx")
+start_date_str = f"{start_date.year}年{start_date.month}月{start_date.day}日"
+end_date_str = f"{end_date.year}年{end_date.month}月{end_date.day}日"
+
+wiki_content = '''{| class="wikitable sortable collapsible"
+|+ %s-%s活跃用户列表
+|-
+! 排名 !! 用户名 !! 操作数 !! 本地用户组
+''' % (start_date_str, end_date_str)
+
+for idx, (user, count, group_name) in enumerate(sorted_data):
+    # 处理用户组显示
+    group_display = group_name
+    if group_name != "无":
+        group_display = f"[[Minecraft Wiki:{group_name}|{group_name}]]"
+
+    rank = ranks[idx] if ranks else idx + 1
+    wiki_content += "|-\n"
+    wiki_content += f"| {rank} || [[User:{user}|{user}]] || {count} || {group_display}\n"
+
+wiki_content += "|}"
+
+txt_filename = f"activeusers-{year}-{month:02d}-{day}.txt"
+with open(txt_filename, "w", encoding="utf-8") as f:
+    f.write(wiki_content)
+print(f"Wiki表格已保存至{txt_filename}")
+
 input("按任意键退出")
