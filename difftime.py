@@ -110,3 +110,6 @@ while rev < maxrev: # 主循环
 
 current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 wb.save(f"difftime-{current_time}.xlsx")
+
+print(f"结果已保存至difftime-{current_time}.xlsx")
+input("按任意键退出")
