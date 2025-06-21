@@ -74,8 +74,6 @@ while True: # 获取过去30天的最近更改详情
 
     last_rccontinue = rc_data['continue']['rccontinue']
 
-    break
-
 print("所有数据已经获取完毕，正在处理中...")
 
 usergroups_api = base.WIKI_API_URL + "?action=query&format=json&list=allusers&formatversion=2&augroup=autopatrol|bot|bureaucrat|interface-admin|patrollers|sysop&auprop=groups&aulimit=500"
