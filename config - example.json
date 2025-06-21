@@ -14,5 +14,23 @@
     },
     "editperiod": {
         "datafile": "usercontribs-theuser-20250620204213"
+    },
+    "activeusers": {
+        "usergroup_order": [
+            "bureaucrat",
+            "sysop",
+            "patrollers",
+            "interface-admin",
+            "autopatrol",
+            "bot"
+        ],
+        "usergroup_mapping": {
+            "bureaucrat": "行政员",
+            "sysop": "管理员",
+            "patrollers": "巡查员",
+            "interface-admin": "界面管理员",
+            "autopatrol": "巡查豁免者",
+            "bot": "机器人"
+        }
     }
 }
