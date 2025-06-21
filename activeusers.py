@@ -20,7 +20,6 @@ year = now.year
 month = now.month
 day1 = 28
 day2 = 25
-day = day1 # 此变量用于固定文件名显示的日期
 
 if base.timezone > 0: # 这些时区0点时，UTC时间在上一天
     day1 -= 1
@@ -29,7 +28,6 @@ if base.timezone > 0: # 这些时区0点时，UTC时间在上一天
 if month == 2:
     start_date = datetime(year, 1, day1)
     end_date = datetime(year, 2, day2)
-    day = day2
 elif month == 3:
     start_date = datetime(year, 2, day2)
     end_date = datetime(year, 3, day1)
@@ -40,15 +38,6 @@ else:
         start_date = datetime(year, month - 1, day1)
 
     end_date = datetime(year, month, day1)
-
-'''
-day只会有三种情况：
-1. 默认值28，这个时候day1有可能是27或28，不过不重要
-2. 25，这个时候day2也是25，即UTC时间的日期与当前时区的日期相同，因此不需要更改
-3. 24，这个时候day2也是24，即UTC时间的日期是当前时区的日期的前一天，因此需要加1
-'''
-if day == 24:
-    day = 25
 
 hour = (24 - base.timezone) % 24
 start_timestamp = start_date.strftime("%Y-%m-%d") + f"T{hour:02d}:00:00Z"
@@ -158,7 +147,7 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
     ws.cell(row=row_idx, column=3, value=count)
     ws.cell(row=row_idx, column=4, value=group_name)
 
-excel_filename = f"activeusers-{year}-{month:02d}-{day}.xlsx"
+excel_filename = f"activeusers-{year}年{month}月.xlsx"
 wb.save(excel_filename)
 print(f"Excel结果已保存至{excel_filename}")
 
@@ -184,7 +173,7 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
 wiki_content += "|}"
 
 # 将wikitable写入文本文件
-txt_filename = f"activeusers-{year}-{month:02d}-{day}.txt"
+txt_filename = f"activeusers-{year}年{month}月.txt"
 with open(txt_filename, "w", encoding="utf-8") as f:
     f.write(wiki_content)
 print(f"Wiki表格已保存至{txt_filename}")
