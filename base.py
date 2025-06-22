@@ -14,6 +14,7 @@ with open("config.json", "r", encoding="utf-8") as config_file:
 
 if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
     print("不存在此语言的Minecraft Wiki！")
+    input("按任意键退出")
     sys.exit(1)
 
 elif wiki == 'en':
@@ -69,6 +70,7 @@ def get_data(api_url): # 从Mediawiki API获取数据
             time.sleep(20)
 
     print("重试失败，请检查网络连接。")
+    input("按任意键退出")
     sys.exit(1)
 
 def get_last_diff(): # 获取当前最大revid
@@ -89,12 +91,10 @@ def is_ip_address(s):
     ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
     ipv4_pattern += r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$'
 
-    # IPv6仅匹配大写
-    ipv6_pattern = r'^([0-9A-F]{1,4}:){7}[0-9A-F]{1,4}$' # 完整格式
-    ipv6_compressed = r'^(::|([0-9A-F]{1,4}:){1,7}:)([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4}$' # 压缩格式
+    # IPv6仅匹配大写和完整格式
+    ipv6_pattern = r'^([0-9A-F]{1,4}:){7}[0-9A-F]{1,4}$'
 
     return (
         re.match(ipv4_pattern, s) is not None or
-        re.match(ipv6_pattern, s) is not None or
-        re.match(ipv6_compressed, s) is not None
+        re.match(ipv6_pattern, s) is not None
     )
