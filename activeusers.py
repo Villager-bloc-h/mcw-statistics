@@ -1,5 +1,5 @@
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import openpyxl
 
 import base
@@ -152,8 +152,14 @@ wb.save(excel_filename)
 print(f"Excel结果已保存至{excel_filename}")
 
 # 将排序后的内容变为wikitable
-start_date_str = f"{start_date.year}年{start_date.month}月{start_date.day}日"
-end_date_str = f"{end_date.year}年{end_date.month}月{end_date.day}日"
+start_utc = datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+end_utc = datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+
+start_local = start_utc + timedelta(hours=base.timezone)
+end_local = end_utc + timedelta(hours=base.timezone)
+
+start_date_str = f"{start_local.year}年{start_local.month}月{start_local.day}日0时"
+end_date_str = f"{end_local.year}年{end_local.month}月{end_local.day}日0时"
 
 wiki_content = '''{| class="wikitable sortable collapsible"
 |+ %s-%s活跃用户列表
