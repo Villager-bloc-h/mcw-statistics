@@ -16,6 +16,7 @@
         "datafile": "usercontribs-theuser-20250620204213"
     },
     "activeusers": {
+        "mode": "standard",
         "usergroup_order": [
             "bureaucrat",
             "sysop",
