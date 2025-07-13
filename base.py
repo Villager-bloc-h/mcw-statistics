@@ -52,7 +52,8 @@ def activeusers_get_config(): # activeusers.py读取配置
     activeusers_config = config.get("activeusers", {})
     usergroup_order = activeusers_config.get("usergroup_order")
     usergroup_mapping = activeusers_config.get("usergroup_mapping")
-    return usergroup_order, usergroup_mapping
+    mode = activeusers_config.get("mode")
+    return usergroup_order, usergroup_mapping, mode
 
 def get_data(api_url): # 从Mediawiki API获取数据
     tries = 0
