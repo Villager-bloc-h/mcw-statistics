@@ -1,3 +1,4 @@
+import sys
 import time
 from datetime import datetime, timedelta
 import openpyxl
@@ -5,7 +6,14 @@ import openpyxl
 import base
 
 # 读取配置，包括：用户组排列顺序和用户组名称
-usergroup_order, usergroup_mapping = base.activeusers_get_config()
+usergroup_order, usergroup_mapping, mode = base.activeusers_get_config()
+
+if mode == "standard" or mode == "debug":
+    pass
+else:
+    print("指定的模式不存在，请检查配置文件。")
+    input("按任意键退出")
+    sys.exit(1)
 
 '''
 设置时间段：
@@ -43,6 +51,18 @@ hour = (24 - base.timezone) % 24
 start_timestamp = start_date.strftime("%Y-%m-%d") + f"T{hour:02d}:00:00Z"
 end_timestamp = end_date.strftime("%Y-%m-%d") + f"T{hour:02d}:00:00Z"
 
+start_utc = datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+end_utc = datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+
+start_local = start_utc + timedelta(hours=base.timezone)
+end_local = end_utc + timedelta(hours=base.timezone)
+
+start_date_str = f"{start_local.year}年{start_local.month}月{start_local.day}日0时"
+end_date_str = f"{end_local.year}年{end_local.month}月{end_local.day}日0时"
+
+excel_filename = f"activeusers-{year}年{month}月.xlsx"
+txt_filename = f"activeusers-{year}年{month}月.txt"
+
 api_url = base.WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=user|loginfo&rclimit=500&rctype=edit|new|log"
 api_url = api_url + f"&rcstart={end_timestamp}&rcend={start_timestamp}"
 
@@ -62,7 +82,7 @@ loop_count = 0
 
 print("启动成功", end='\n\n')
 
-while True: # 获取过去30天的最近更改详情
+while True: # 获取过去一个月的最近更改详情
     time.sleep(3)
 
     if last_rccontinue != "": # 不是首次循环，使用这个继续
@@ -77,8 +97,9 @@ while True: # 获取过去30天的最近更改详情
 
     for item in rc_data['query']['recentchanges']:
         if item['type'] == "log":
-            if 'actionhidden' in item: # 日志详情已移除，忽略
-                continue
+            if 'actionhidden' in item:
+                if 'userhidden' in item: # 用户名已移除，忽略
+                    continue
             elif item['logtype'] == "newusers": # 用户创建日志不计入操作数
                 continue
 
@@ -147,20 +168,10 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
     ws.cell(row=row_idx, column=3, value=count)
     ws.cell(row=row_idx, column=4, value=group_name)
 
-excel_filename = f"activeusers-{year}年{month}月.xlsx"
 wb.save(excel_filename)
 print(f"Excel结果已保存至{excel_filename}")
 
 # 将排序后的内容变为wikitable
-start_utc = datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
-end_utc = datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
-
-start_local = start_utc + timedelta(hours=base.timezone)
-end_local = end_utc + timedelta(hours=base.timezone)
-
-start_date_str = f"{start_local.year}年{start_local.month}月{start_local.day}日0时"
-end_date_str = f"{end_local.year}年{end_local.month}月{end_local.day}日0时"
-
 wiki_content = '''{| class="wikitable sortable collapsible"
 |+ %s-%s活跃用户列表
 |-
@@ -179,7 +190,6 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
 wiki_content += "|}"
 
 # 将wikitable写入文本文件
-txt_filename = f"activeusers-{year}年{month}月.txt"
 with open(txt_filename, "w", encoding="utf-8") as f:
     f.write(wiki_content)
 print(f"Wiki表格已保存至{txt_filename}")
