@@ -13,26 +13,25 @@ user_list = {}
 last_lecontinue = ""
 loop_count = 0
 
-if os.path.exists("patrolcount_backup.xlsx"): # 恢复上次中断时保存的内容
-    wb = openpyxl.load_workbook("patrolcount_backup.xlsx")
-    ws = wb.active
+wb = openpyxl.Workbook()
+ws = wb.active
+ws['A1'] = "排名"
+ws['B1'] = "用户名"
+ws['C1'] = "巡查数"
+ws.column_dimensions['B'].width = 20.00
+
+if os.path.exists("patrolcount_backup.json"): # 恢复上次中断时保存的内容
     with open(f"patrolcount_backup.json", "r", encoding="utf-8") as backup_file:
         backup_data = json.load(backup_file)
 
     last_lecontinue = backup_data["last_lecontinue"]
     loop_count = backup_data["loop_count"]
-    for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
-        rank, username, count = row[:3]
-        if username and count is not None:
-            user_list[username] = count
+    user_list = backup_data["user_list"]
 
-else:
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws['A1'] = "排名"
-    ws['B1'] = "用户名"
-    ws['C1'] = "巡查数"
-    ws.column_dimensions['B'].width = 20.00
+    print("已恢复上次中断时保存的内容")
+
+current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+excel_filename = f"patrolcount-{current_time}.xlsx"
 
 print("启动成功", end='\n\n')
 
@@ -59,14 +58,14 @@ while True: # 获取所有巡查日志的内容
 
     last_lecontinue = le_data['continue']['lecontinue']
 
-    if loop_count % 100 == 0:
+    if loop_count % 1 == 0:
         backup_json = {
             "last_lecontinue": last_lecontinue,
             "loop_count": loop_count,
+            "user_list": user_list,
         }
         with open(f'patrolcount_backup.json', 'w', encoding='utf-8') as file:
             json.dump(backup_json, file, ensure_ascii=False, indent=4)
-        wb.save("patrolcount_backup.xlsx")
         print("已保存进度")
 
 print("所有数据已经获取完毕，正在处理中...")
@@ -98,14 +97,8 @@ for idx, (user, count) in enumerate(sorted_data):
     ws.cell(row=row_idx, column=2, value=user)
     ws.cell(row=row_idx, column=3, value=count)
 
-current_time = datetime.now().strftime("%Y%m%d%H%M%S")
-excel_filename = f"patrolcount-{current_time}.xlsx"
 wb.save(excel_filename)
 print(f"Excel结果已保存至{excel_filename}")
-
-if os.path.exists("patrolcount_backup.xlsx"):
-    os.remove("patrolcount_backup.xlsx")
-    print("已删除Excel备份文件")
 
 if os.path.exists("patrolcount_backup.json"):
     os.remove("patrolcount_backup.json")
