@@ -51,6 +51,8 @@ else:
 fromrev = rev
 torev = rev
 
+current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+
 print("启动成功", end='\n\n')
 
 while rev < maxrev: # 主循环
@@ -108,7 +110,6 @@ while rev < maxrev: # 主循环
         if 'error' in torev_data and torev < maxrev:
             torev = torev + 1
 
-current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 wb.save(f"difftime-{current_time}.xlsx")
 print(f"结果已保存至difftime-{current_time}.xlsx")
 
