@@ -19,6 +19,8 @@ contribs_result = []
 last_uccontinue = ""
 loop_count = 0
 
+current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+
 print("启动成功", end='\n\n')
 
 while True:
@@ -33,10 +35,12 @@ while True:
 
     if 'error' in contribs_data:
         print("API返回错误信息，请检查时间戳格式是否正确。")
+        input("按任意键退出")
         sys.exit(1)
 
     if not contribs_data['query']['usercontribs']:
         print("API未返回有效数据，请检查用户是否存在、用户是否有贡献或时间范围是否正确。")
+        input("按任意键退出")
         sys.exit(1)
 
     contribs_result.extend(contribs_data['query']['usercontribs'])
@@ -51,7 +55,6 @@ while True:
 
 contribs_result = contribs_result[::-1]
 
-current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 with open(f'usercontribs-{username}-{current_time}.json', 'w', encoding='utf-8') as file:
     json.dump(contribs_result, file, ensure_ascii=False, indent=4)
 
