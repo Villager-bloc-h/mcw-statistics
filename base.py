@@ -11,6 +11,8 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     wiki = config["wiki"]
     user_agent = config["user_agent"]
     timezone = int(config["timezone"])
+    username = config["username"]
+    password = config["password"]
 
 if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
     print("不存在此语言的Minecraft Wiki！")
@@ -25,6 +27,35 @@ else:
 
 WIKI_API_URL = WIKI_BASE_URL + "/api.php"
 
+session = requests.Session()
+
+# 获取登录token
+r1 = session.get(WIKI_API_URL, params={
+    'action': 'query',
+    'meta': 'tokens',
+    'type': 'login',
+    'format': 'json'
+})
+login_token = r1.json()['query']['tokens']['logintoken']
+
+# 提交用户名和密码
+r2 = session.post(WIKI_API_URL, data={
+    'action': 'login',
+    'lgname': username,
+    'lgpassword': password,
+    'lgtoken': login_token,
+    'format': 'json'
+})
+
+# 检查登录结果
+result = r2.json()
+if result['login']['result'] == 'Success':
+    islogin = True
+    print("登录成功")
+else:
+    islogin = False
+    print("登录失败：", result['login'])
+
 def difftime_get_config(): # difftime.py读取配置
     difftime_config = config.get("difftime", {})
     num_diff = int(difftime_config.get("num_diff"))
@@ -38,10 +69,10 @@ def difftime_get_config(): # difftime.py读取配置
 
 def usercontribs_get_config(): # usercontribs.py读取配置
     usercontribs_config = config.get("usercontribs", {})
-    username = usercontribs_config.get("username")
+    queryusername = usercontribs_config.get("username")
     ucend = usercontribs_config.get("starttime")
     ucstart = usercontribs_config.get("endtime")
-    return username, ucend, ucstart
+    return queryusername, ucend, ucstart
 
 def editperiod_get_config(): # editperiod.py读取配置
     editperiod_config = config.get("editperiod", {})
@@ -55,11 +86,15 @@ def activeusers_get_config(): # activeusers.py读取配置
     mode = activeusers_config.get("mode")
     return usergroup_order, usergroup_mapping, mode
 
-def get_data(api_url): # 从Mediawiki API获取数据
+def get_data(params): # 从Mediawiki API获取数据
     tries = 0
     while 1:
         try:
-            response = requests.get(api_url, headers={"User-Agent": user_agent})
+            if islogin:
+                response = session.post(WIKI_API_URL, data=params)
+            else:
+                response = requests.get(WIKI_API_URL, params=params, headers={"User-Agent": user_agent})
+
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException:
@@ -75,8 +110,16 @@ def get_data(api_url): # 从Mediawiki API获取数据
     sys.exit(1)
 
 def get_last_diff(): # 获取当前最大revid
-    api_url = WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=ids&rclimit=1&rctype=edit|new"
-    return get_data(api_url)
+    params = {
+        "action": "query",
+        "format": "json",
+        "formatversion": 2,
+        "list": "recentchanges",
+        "rcprop": "ids",
+        "rclimit": 1,
+        "rctype": "edit|new"
+    }
+    return get_data(params)
 
 def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UTC时间改为当前时区
     # 时间格式：2025-06-16T12:24:55Z
