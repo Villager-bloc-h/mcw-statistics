@@ -68,5 +68,7 @@
 
 程序支持不同时区，可以通过修改`config.json`的`timezone`字段切换。
 
+程序支持使用[[Special:机器人密码]]提供的用户名和密码登录。
+
 ## 授权协议
 程序采用与Minecraft Wiki相同的CC BY-NC-SA 3.0协议授权。
