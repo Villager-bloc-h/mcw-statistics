@@ -54,8 +54,19 @@ start_time_utc = start_time.astimezone(timezone.utc)
 end_timestamp_utc = end_time_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 start_timestamp_utc = start_time_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-api_url = base.WIKI_API_URL + "?action=query&format=json&list=recentchanges&formatversion=2&rcprop=user|loginfo&rclimit=500&rctype=edit|new|log"
-api_url = api_url + f"&rcstart={end_timestamp_utc}&rcend={start_timestamp_utc}"
+params = {
+    "action": "query",
+    "format": "json",
+    "list": "recentchanges",
+    "formatversion": 2,
+    "rcprop": "user|loginfo",
+    "rclimit": "max",
+    "rctype": "edit|new|log",
+}
+params.update({
+    "rcstart": end_timestamp_utc,
+    "rcend": start_timestamp_utc,
+})
 
 # 设置excel表格格式
 wb = openpyxl.Workbook()
@@ -77,11 +88,12 @@ while True: # 获取过去一个月的最近更改详情
     time.sleep(3)
 
     if last_rccontinue != "": # 不是首次循环，使用这个继续
-        last_api_url = api_url + "&rccontinue=" + last_rccontinue
+        last_params = params.copy()
+        last_params.update({"rccontinue": last_rccontinue})
     else: # 首次循环
-        last_api_url = api_url
+        last_params = params
 
-    rc_data = base.get_data(last_api_url)
+    rc_data = base.get_data(last_params)
 
     loop_count += 1
     print(f"成功获取第{loop_count}组数据")
@@ -106,8 +118,16 @@ while True: # 获取过去一个月的最近更改详情
 print("所有数据已经获取完毕，正在处理中...")
 
 # 获取用户组信息
-usergroups_api = base.WIKI_API_URL + "?action=query&format=json&list=allusers&formatversion=2&augroup=autopatrol|bot|bureaucrat|interface-admin|patrollers|sysop&auprop=groups&aulimit=500"
-usergroups_data = base.get_data(usergroups_api)
+usergroups_params = {
+    "action": "query",
+    "format": "json",
+    "list": "allusers",
+    "formatversion": 2,
+    "augroup": "autopatrol|bot|bureaucrat|interface-admin|patrollers|sysop",
+    "auprop": "groups",
+    "aulimit": "max",
+}
+usergroups_data = base.get_data(usergroups_params)
 
 user_permissions = {}
 
