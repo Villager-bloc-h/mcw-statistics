@@ -7,13 +7,21 @@ import base
 
 username, ucend, ucstart = base.usercontribs_get_config()
 
-api_url = base.WIKI_API_URL + f"?action=query&format=json&list=usercontribs&formatversion=2&uclimit=500&ucuser={username}&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags"
+params = {
+    "action": "query",
+    "format": "json",
+    "list": "usercontribs",
+    "formatversion": 2,
+    "uclimit": "max",
+    "ucuser": username,
+    "ucprop": "ids|title|timestamp|comment|size|flags|sizediff|tags",
+}
 
 if ucend != "":
-    api_url = api_url + "&ucend=" + ucend
+    params.update({"ucend": ucend})
 
 if ucstart != "":
-    api_url = api_url + "&ucstart=" + ucstart
+    params.update({"ucstart": ucstart})
 
 contribs_result = []
 last_uccontinue = ""
@@ -27,11 +35,12 @@ while True:
     time.sleep(3)
 
     if last_uccontinue != "":
-        last_api_url = api_url + "&uccontinue=" + last_uccontinue
+        last_params = params.copy()
+        last_params.update({"uccontinue": last_uccontinue})
     else:
-        last_api_url = api_url
+        last_params = params
 
-    contribs_data = base.get_data(last_api_url)
+    contribs_data = base.get_data(last_params)
 
     if 'error' in contribs_data:
         print("API返回错误信息，请检查时间戳格式是否正确。")
