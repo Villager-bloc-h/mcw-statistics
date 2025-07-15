@@ -7,7 +7,14 @@ import openpyxl
 
 import base
 
-api_url = base.WIKI_API_URL + "?action=query&format=json&list=allrevisions&formatversion=2&arvprop=user&arvlimit=500"
+params = {
+    "action": "query",
+    "format": "json",
+    "list": "allrevisions",
+    "formatversion": 2,
+    "arvprop": "user",
+    "arvlimit": "max",
+}
 
 user_list = {}
 last_arvcontinue = ""
@@ -45,11 +52,12 @@ while True: # 获取所有修订版本的内容
     time.sleep(3)
 
     if last_arvcontinue != "":  # 不是首次循环，使用这个继续
-        last_api_url = api_url + "&arvcontinue=" + last_arvcontinue
+        last_params = params.copy()
+        last_params.update({"arvcontinue": last_arvcontinue})
     else:  # 首次循环
-        last_api_url = api_url
+        last_params = params
 
-    arv_data = base.get_data(last_api_url)
+    arv_data = base.get_data(last_params)
 
     loop_count += 1
     print(f"成功获取第{loop_count}组数据")
