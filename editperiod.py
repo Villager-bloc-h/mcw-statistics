@@ -1,7 +1,6 @@
 import json
 import sys
 import openpyxl
-from datetime import datetime
 
 import base
 
@@ -12,48 +11,135 @@ try:
         contribs_data = json.load(contribs_file)
 except FileNotFoundError:
     print("指定的文件不存在！")
+    input("按任意键退出")
     sys.exit(1)
 
 username = contribs_data[0]["user"]
 
 wb = openpyxl.Workbook()
+
+# 第一个工作表
 sheet1 = wb.active
-sheet1.title = "按每小时计"
-sheet1['A1'] = "时间段"
+sheet1.title = "按年计"
+sheet1['A1'] = "年份"
 sheet1['B1'] = "编辑数"
-sheet1.column_dimensions['A'].width = 12.00
+
+# 第二个工作表
+sheet2 = wb.create_sheet("按月计")
+sheet2['A1'] = "月份"
+sheet2['B1'] = "编辑数"
 
 row = 2
-hours = ["00:00-01:00","01:00-02:00","02:00-03:00","03:00-04:00","04:00-05:00","05:00-06:00","06:00-07:00","07:00-08:00","08:00-09:00","09:00-10:00","10:00-11:00","11:00-12:00","12:00-13:00","13:00-14:00","14:00-15:00","15:00-16:00","16:00-17:00","17:00-18:00","18:00-19:00","19:00-20:00","20:00-21:00","21:00-22:00","22:00-23:00","23:00-00:00"]
+months = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
 
-while row < 26: # 第一个表格内容初始化
-    sheet1[f'A{row}'] = hours[row-2]
-    sheet1[f'B{row}'] = 0
+while row < 14: # 第二个表格内容初始化
+    sheet2[f'A{row}'] = months[row-2]
+    sheet2[f'B{row}'] = 0
     row += 1
 
-sheet2 = wb.create_sheet("按一周七天计")
-sheet2['A1'] = "星期"
-sheet2['B1'] = "编辑数"
+# 第三个工作表
+sheet3 = wb.create_sheet("按一周七天计")
+sheet3['A1'] = "星期"
+sheet3['B1'] = "编辑数"
 
 row = 2
 weekdays = ["星期一","星期二","星期三","星期四","星期五","星期六","星期日"]
 
-while row < 9: # 第二个表格内容初始化
-    sheet2[f'A{row}'] = weekdays[row-2]
-    sheet2[f'B{row}'] = 0
+while row < 9: # 第三个表格内容初始化
+    sheet3[f'A{row}'] = weekdays[row-2]
+    sheet3[f'B{row}'] = 0
     row += 1
+
+# 第四个工作表
+sheet4 = wb.create_sheet("按天计")
+sheet4['A1'] = "天数"
+sheet4['B1'] = "编辑数"
+
+row = 2
+days = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
+
+while row < 33: # 第四个表格内容初始化
+    sheet4[f'A{row}'] = days[row-2]
+    sheet4[f'B{row}'] = 0
+    row += 1
+
+# 第五个工作表
+sheet5 = wb.create_sheet("按每小时计")
+sheet5['A1'] = "时间段"
+sheet5['B1'] = "编辑数"
+sheet5.column_dimensions['A'].width = 12.00
+
+row = 2
+hours = ["00:00-01:00","01:00-02:00","02:00-03:00","03:00-04:00","04:00-05:00","05:00-06:00","06:00-07:00","07:00-08:00","08:00-09:00","09:00-10:00","10:00-11:00","11:00-12:00","12:00-13:00","13:00-14:00","14:00-15:00","15:00-16:00","16:00-17:00","17:00-18:00","18:00-19:00","19:00-20:00","20:00-21:00","21:00-22:00","22:00-23:00","23:00-00:00"]
+
+while row < 26: # 第五个表格内容初始化
+    sheet5[f'A{row}'] = hours[row-2]
+    sheet5[f'B{row}'] = 0
+    row += 1
+
+# 第六个工作表
+sheet6 = wb.create_sheet("按每分钟计")
+sheet6['A1'] = "分钟数"
+sheet6['B1'] = "编辑数"
+sheet6.column_dimensions['A'].width = 12.00
+
+row = 2
+minutes = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+
+while row < 62: # 第六个表格内容初始化
+    sheet6[f'A{row}'] = minutes[row-2]
+    sheet6[f'B{row}'] = 0
+    row += 1
+
+# 第七个工作表
+sheet7 = wb.create_sheet("按每秒钟计")
+sheet7['A1'] = "秒钟数"
+sheet7['B1'] = "编辑数"
+sheet7.column_dimensions['A'].width = 12.00
+
+row = 2
+seconds = minutes
+
+while row < 62: # 第七个表格内容初始化
+    sheet7[f'A{row}'] = seconds[row-2]
+    sheet7[f'B{row}'] = 0
+    row += 1
+
+year_dict = {}
 
 print("启动成功", end='\n\n')
 
 for item in contribs_data:
     dt = base.extract_from_timestamp(item["timestamp"])
-    hour = dt.hour
-    sheet1.cell(row=hour+2, column=2).value += 1
+
+    year = dt.year
+    year_dict[year] = year_dict.get(year, 0) + 1
+
+    month = dt.month
+    sheet2.cell(row=month+1, column=2).value += 1
 
     weekday = dt.weekday()
-    sheet2.cell(row=weekday+2, column=2).value += 1
+    sheet3.cell(row=weekday+2, column=2).value += 1
 
-current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+    day = dt.day
+    sheet4.cell(row=day+1, column=2).value += 1
+
+    hour = dt.hour
+    sheet5.cell(row=hour+2, column=2).value += 1
+
+    minute = dt.minute
+    sheet6.cell(row=minute+2, column=2).value += 1
+
+    second = dt.second
+    sheet7.cell(row=second+2, column=2).value += 1
+
+row = 2
+for y in sorted(year_dict):
+    sheet1[f'A{row}'] = y
+    sheet1[f'B{row}'] = year_dict[y]
+    row += 1
+
+current_time = datafile[-14:]
 wb.save(f"{username}-editperiod-{current_time}.xlsx")
 
 print(f"结果已保存至{username}-editperiod-{current_time}.xlsx")
