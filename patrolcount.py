@@ -7,7 +7,15 @@ import openpyxl
 
 import base
 
-api_url = base.WIKI_API_URL + "?action=query&format=json&list=logevents&formatversion=2&leprop=user&letype=patrol&lelimit=500"
+params = {
+    "action": "query",
+    "format": "json",
+    "list": "logevents",
+    "formatversion": 2,
+    "leprop": "user",
+    "letype": "patrol",
+    "lelimit": "max",
+}
 
 user_list = {}
 last_lecontinue = ""
@@ -43,11 +51,12 @@ while True: # 获取所有巡查日志的内容
     time.sleep(3)
 
     if last_lecontinue != "":  # 不是首次循环，使用这个继续
-        last_api_url = api_url + "&lecontinue=" + last_lecontinue
+        last_params = params.copy()
+        last_params.update({"lecontinue": last_lecontinue})
     else:  # 首次循环
-        last_api_url = api_url
+        last_params = params
 
-    le_data = base.get_data(last_api_url)
+    le_data = base.get_data(last_params)
 
     loop_count += 1
     print(f"成功获取第{loop_count}组数据")
