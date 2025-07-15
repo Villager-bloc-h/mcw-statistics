@@ -58,7 +58,7 @@ while True: # 获取所有巡查日志的内容
 
     last_lecontinue = le_data['continue']['lecontinue']
 
-    if loop_count % 100 == 0:
+    if loop_count % 10 == 0:
         backup_json = {
             "last_lecontinue": last_lecontinue,
             "loop_count": loop_count,
