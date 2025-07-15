@@ -15,7 +15,7 @@
 使用前，请自行根据需求修改`config.json`中的`username`、`starttime`和`endtime`字段，其中`starttime`和`endtime`指定了搜索的时间范围，可以为空。`username`中的空格可以被下划线取代，而`starttime`和`endtime`必须遵守`<年>-<月>-<日>T<时>:<分>:<秒>Z`的格式，其中年份必须为4位数字，其他必须为2位数字。
 
 ### 指定用户的编辑时段（`editperiod.py`）
-读取`usercontribs.py`产生的json文件，统计指定用户在一天24小时或一周7天，每小时或每天的编辑总数，并存储到两个工作表中。
+读取`usercontribs.py`产生的json文件，统计指定用户在每年、每月、每星期几、每天、每小时、每分钟、每秒钟的编辑总数，并存储到七个工作表中。
 
 使用前，请自行根据需求修改`config.json`中的`datafile`字段，其指定了`usercontribs.py`产生的json文件的名称，不需要带上后缀名。
 
