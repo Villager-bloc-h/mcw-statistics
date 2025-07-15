@@ -2,6 +2,8 @@
     "wiki": "zh",
     "timezone": "8",
     "user_agent": "(换成你自己的名字和联系方式)",
+    "username": "",
+    "password": "",
     "difftime": {
         "num_diff": "114514",
         "minrev": "",
