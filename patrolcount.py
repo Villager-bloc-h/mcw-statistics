@@ -72,7 +72,7 @@ print("所有数据已经获取完毕，正在处理中...")
 
 sorted_data = []
 
-# 过滤IP用户，将用户组信息放入列表
+# 将用户组信息放入列表
 for user, count in user_list.items():
     sorted_data.append((user, count))
 
