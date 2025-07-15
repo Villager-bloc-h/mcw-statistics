@@ -13,6 +13,7 @@ user_list = {}
 last_arvcontinue = ""
 loop_count = 0
 hidden = 0
+current_time = ""
 
 wb = openpyxl.Workbook()
 ws = wb.active
@@ -29,10 +30,13 @@ if os.path.exists("editcount_backup.json"): # 恢复上次中断时保存的内�
     loop_count = backup_data["loop_count"]
     hidden = backup_data["hidden"]
     user_list = backup_data["user_list"]
+    current_time = backup_data["current_time"]
 
     print("已恢复上次中断时保存的内容")
 
-current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+if current_time == "":
+    current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+
 excel_filename = f"editcount-{current_time}.xlsx"
 
 print("启动成功", end='\n\n')
@@ -68,6 +72,7 @@ while True: # 获取所有修订版本的内容
             "last_arvcontinue": last_arvcontinue,
             "loop_count": loop_count,
             "hidden": hidden,
+            "current_time": current_time,
             "user_list": user_list,
         }
         with open(f'editcount_backup.json', 'w', encoding='utf-8') as file:
@@ -78,7 +83,7 @@ print("所有数据已经获取完毕，正在处理中...")
 
 sorted_data = []
 
-# 将用户组信息放入列表
+# 将编辑次数信息放入列表
 for user, count in user_list.items():
     sorted_data.append((user, count))
 
