@@ -7,7 +7,12 @@ from openpyxl.styles import NamedStyle
 
 import base
 
-api_url = base.WIKI_API_URL + "?action=compare&format=json&prop=timestamp&formatversion=2"
+params = {
+    "action": "compare",
+    "format": "json",
+    "formatversion": 2,
+    "prop": "timestamp",
+}
 num_diff, minrev, maxrev = base.difftime_get_config()
 
 if minrev is None:
@@ -58,9 +63,13 @@ print("启动成功", end='\n\n')
 while rev < maxrev: # 主循环
     time.sleep(1)
 
-    current_url = api_url + f"&fromrev={fromrev}&torev={torev}"
+    current_params = params.copy()
+    current_params.update({
+        "fromrev": fromrev,
+        "torev": torev,
+    })
 
-    data = base.get_data(current_url)
+    data = base.get_data(current_params)
 
     if 'compare' in data:
         row = ws.max_row + 1
@@ -97,12 +106,20 @@ while rev < maxrev: # 主循环
         torev = rev
 
     else: # 修订数据被删除，扩大搜索范围
-        fromrev_url = api_url + f"&fromrev={fromrev}&torev={fromrev}"
-        torev_url = api_url + f"&torev={torev}&fromrev={torev}"
+        fromrev_params = params.copy()
+        current_params.update({
+            "fromrev": fromrev,
+            "torev": fromrev,
+        })
+        torev_params = params.copy()
+        torev_params.update({
+            "fromrev": torev,
+            "torev": torev,
+        })
 
-        fromrev_data = base.get_data(fromrev_url)
+        fromrev_data = base.get_data(fromrev_params)
         time.sleep(0.5)
-        torev_data = base.get_data(torev_url)
+        torev_data = base.get_data(torev_params)
 
         if 'error' in fromrev_data and fromrev > minrev:
             fromrev = fromrev - 1
