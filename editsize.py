@@ -49,8 +49,6 @@ bin_10  = {}
 bin_100 = {}
 bin_1000 = {}
 
-print("启动成功", end="\n\n")
-
 for item in contribs_data:
     diff = item["sizediff"]
 
