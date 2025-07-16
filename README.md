@@ -51,6 +51,11 @@
 
 此程序和`editperiod.py`共用一个配置项。使用前，请自行根据需求修改`config.json`中的`datafile`字段，其指定了`usercontribs.py`产生的json文件的名称，不需要带上后缀名。
 
+### 总编辑数随日期的变化（`editintegration.py`）
+读取`usercontribs.py`产生的json文件，统计指定用户的总编辑数随日期的变化。
+
+此程序和`editperiod.py`共用一个配置项。使用前，请自行根据需求修改`config.json`中的`datafile`字段，其指定了`usercontribs.py`产生的json文件的名称，不需要带上后缀名。
+
 ## 使用方法
 程序需要同目录存在`config.json`才能正常运作。使用前，请自行修改`config.json`中的用户代理。如果不设置用户代理，任何请求都会被服务器拒绝。
 
