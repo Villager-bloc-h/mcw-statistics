@@ -11,8 +11,8 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     wiki = config["wiki"]
     user_agent = config["user_agent"]
     timezone = int(config["timezone"])
-    username = config["username"]
-    password = config["password"]
+    username = config["username"] if "username" in config else None
+    password = config["password"] if "password" in config else None
 
 if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
     print("不存在此语言的Minecraft Wiki！")
@@ -27,34 +27,39 @@ else:
 
 WIKI_API_URL = WIKI_BASE_URL + "/api.php"
 
-session = requests.Session()
+if username and password:
+    session = requests.Session()
 
-# 获取登录token
-r1 = session.get(WIKI_API_URL, params={
-    'action': 'query',
-    'meta': 'tokens',
-    'type': 'login',
-    'format': 'json'
-})
-login_token = r1.json()['query']['tokens']['logintoken']
+    # 获取登录token
+    r1 = session.get(WIKI_API_URL, params={
+        'action': 'query',
+        'meta': 'tokens',
+        'type': 'login',
+        'format': 'json'
+    })
+    login_token = r1.json()['query']['tokens']['logintoken']
 
-# 提交用户名和密码
-r2 = session.post(WIKI_API_URL, data={
-    'action': 'login',
-    'lgname': username,
-    'lgpassword': password,
-    'lgtoken': login_token,
-    'format': 'json'
-})
+    # 提交用户名和密码
+    r2 = session.post(WIKI_API_URL, data={
+        'action': 'login',
+        'lgname': username,
+        'lgpassword': password,
+        'lgtoken': login_token,
+        'format': 'json'
+    })
 
-# 检查登录结果
-result = r2.json()
-if result['login']['result'] == 'Success':
-    islogin = True
-    print("登录成功")
+    # 检查登录结果
+    result = r2.json()
+    if result['login']['result'] == 'Success':
+        islogin = True
+        print("登录成功")
+    else:
+        islogin = False
+        print("登录失败：", result['login'])
+
 else:
+    print("未提供用户名和密码，将以未登录状态运作")
     islogin = False
-    print("登录失败：", result['login'])
 
 def difftime_get_config(): # difftime.py读取配置
     difftime_config = config.get("difftime", {})
