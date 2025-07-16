@@ -1,4 +1,3 @@
-#编辑数对日期的积分
 import json
 import sys
 from datetime import timedelta
