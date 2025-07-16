@@ -107,8 +107,6 @@ while row < 62: # 第七个表格内容初始化
 
 year_dict = {}
 
-print("启动成功", end='\n\n')
-
 for item in contribs_data:
     dt = base.extract_from_timestamp(item["timestamp"])
 
