@@ -83,7 +83,7 @@
 
 程序支持不同时区，可以通过修改`config.json`的`timezone`字段切换。
 
-程序支持使用[[Special:机器人密码]]提供的用户名和密码登录，需要填写`config.json`的`username`和`password`字段。如果不需要登录，移除这两个字段即可。
+程序支持使用[[Special:机器人密码]]提供的用户名和密码登录，需要填写`config.json`的`username`和`password`字段。如果不需要登录，将这两个字段留空或移除即可。
 
 ## 授权协议
 程序采用与Minecraft Wiki相同的CC BY-NC-SA 3.0协议授权。
