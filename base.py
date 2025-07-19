@@ -14,7 +14,9 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     username = config["username"] if "username" in config else None
     password = config["password"] if "password" in config else None
 
-if wiki not in ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']:
+wiki_lang = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']
+
+if wiki not in wiki_lang:
     print("不存在此语言的Minecraft Wiki！")
     input("按任意键退出")
     sys.exit(1)
@@ -29,6 +31,7 @@ WIKI_API_URL = WIKI_BASE_URL + "/api.php"
 
 if username and password:
     session = requests.Session()
+    session.headers.update({"User-Agent": user_agent})
 
     # 获取登录token
     r1 = session.get(WIKI_API_URL, params={
