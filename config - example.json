@@ -1,7 +1,7 @@
 {
     "wiki": "zh",
     "timezone": "8",
-    "user_agent": "(换成你自己的名字和联系方式)",
+    "user_agent": "",
     "username": "",
     "password": "",
     "difftime": {
@@ -15,7 +15,7 @@
         "endtime": ""
     },
     "editperiod": {
-        "datafile": "usercontribs-theuser-20250620204213"
+        "datafile": "usercontribs-username-20250620204213"
     },
     "activeusers": {
         "mode": "standard",
@@ -35,5 +35,8 @@
             "autopatrol": "巡查豁免者",
             "bot": "机器人"
         }
+    },
+    "checkhiddenrc": {
+        "checknum": "65000"
     }
 }
