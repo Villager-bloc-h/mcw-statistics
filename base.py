@@ -64,7 +64,8 @@ else:
     print("未提供用户名和密码，将以未登录状态运作")
     islogin = False
 
-def difftime_get_config(): # difftime.py读取配置
+
+def difftime_get_config():  # difftime.py读取配置
     difftime_config = config.get("difftime", {})
     num_diff = int(difftime_config.get("num_diff"))
 
@@ -75,26 +76,36 @@ def difftime_get_config(): # difftime.py读取配置
 
     return num_diff, minrev, maxrev
 
-def usercontribs_get_config(): # usercontribs.py读取配置
+
+def usercontribs_get_config():  # usercontribs.py读取配置
     usercontribs_config = config.get("usercontribs", {})
     queryusername = usercontribs_config.get("username")
     ucend = usercontribs_config.get("starttime")
     ucstart = usercontribs_config.get("endtime")
     return queryusername, ucend, ucstart
 
-def editperiod_get_config(): # editperiod.py读取配置
+
+def editperiod_get_config():  # editperiod.py读取配置
     editperiod_config = config.get("editperiod", {})
     datafile = editperiod_config.get("datafile")
     return datafile
 
-def activeusers_get_config(): # activeusers.py读取配置
+
+def activeusers_get_config():  # activeusers.py读取配置
     activeusers_config = config.get("activeusers", {})
     usergroup_order = activeusers_config.get("usergroup_order")
     usergroup_mapping = activeusers_config.get("usergroup_mapping")
     mode = activeusers_config.get("mode")
     return usergroup_order, usergroup_mapping, mode
 
-def get_data(params): # 从Mediawiki API获取数据
+
+def checkhiddenrc_get_config():  # checkhiddenrc.py读取配置
+    checkhiddenrc_config = config.get("checkhiddenrc", {})
+    checknum = int(checkhiddenrc_config.get("checknum"))
+    return checknum
+
+
+def get_data(params):  # 从Mediawiki API获取数据
     tries = 0
     while 1:
         try:
@@ -117,7 +128,8 @@ def get_data(params): # 从Mediawiki API获取数据
     input("按任意键退出")
     sys.exit(1)
 
-def get_last_diff(): # 获取当前最大revid
+
+def get_last_diff():  # 获取当前最大revid
     params = {
         "action": "query",
         "format": "json",
@@ -129,13 +141,15 @@ def get_last_diff(): # 获取当前最大revid
     }
     return get_data(params)
 
-def extract_from_timestamp(timestamp_str): # 提取日期、时间数据，将UTC时间改为当前时区
+
+def extract_from_timestamp(timestamp_str):  # 提取日期、时间数据，将UTC时间改为当前时区
     # 时间格式：2025-06-16T12:24:55Z
     dt = datetime.datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%SZ")
 
     dt = dt + datetime.timedelta(hours=timezone)
 
     return dt
+
 
 def is_ip_address(s):
     ipv4_pattern = r'^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.'
@@ -147,6 +161,6 @@ def is_ip_address(s):
     ipv6_pattern = r'^([0-9A-F]{1,4}:){7}[0-9A-F]{1,4}$'
 
     return (
-        re.match(ipv4_pattern, s) is not None or
-        re.match(ipv6_pattern, s) is not None
+            re.match(ipv4_pattern, s) is not None or
+            re.match(ipv6_pattern, s) is not None
     )
