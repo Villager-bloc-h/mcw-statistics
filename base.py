@@ -101,8 +101,9 @@ def activeusers_get_config():  # activeusers.py读取配置
 
 def checkhiddenrc_get_config():  # checkhiddenrc.py读取配置
     checkhiddenrc_config = config.get("checkhiddenrc", {})
-    checknum = int(checkhiddenrc_config.get("checknum"))
-    return checknum
+    endtime = checkhiddenrc_config.get("starttime")
+    starttime = checkhiddenrc_config.get("endtime")
+    return starttime, endtime
 
 
 def get_data(params):  # 从Mediawiki API获取数据
