@@ -2,8 +2,8 @@
     "wiki": "zh",
     "timezone": "8",
     "user_agent": "",
-    "username": "",
-    "password": "",
+    "username": "username@botpasswordname",
+    "password": "randomstring",
     "difftime": {
         "num_diff": "114514",
         "minrev": "",
@@ -37,6 +37,7 @@
         }
     },
     "checkhiddenrc": {
-        "checknum": "65000"
+        "starttime": "2025-06-30T01:23:45Z",
+        "endtime": ""
     }
 }
