@@ -4,8 +4,7 @@ from bisect import bisect_left
 
 import base
 
-checknum = base.checkhiddenrc_get_config()
-loop_count = math.ceil(checknum / 500)
+starttime, endtime = base.checkhiddenrc_get_config()
 loop = 0
 
 arv_data = []  # (revid)
@@ -23,10 +22,22 @@ base_params = {
     "rctype": "edit|new|log"
 }
 
+if starttime != "":
+    base_params.update({
+        "arvstart": starttime,
+        "rcstart": starttime
+    })
+
+if endtime != "":
+    base_params.update({
+        "arvend": endtime,
+        "rcend": endtime
+    })
+
 last_rccontinue = ""
 last_arvcontinue = ""
 
-while loop < loop_count:
+while True:
     time.sleep(3)
 
     if last_rccontinue != "":  # 不是首次循环，使用这个继续
