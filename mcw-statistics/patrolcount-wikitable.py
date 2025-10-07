@@ -14,7 +14,7 @@ params = {
     "formatversion": 2,
     "leprop": "user",
     "letype": "patrol",
-    "lelimit": "200",
+    "lelimit": "max",
 }
 
 user_list = {}
@@ -142,3 +142,4 @@ with open(txt_filename, "w", encoding="utf-8") as f:
 print(f"Wiki表格已保存至{txt_filename}")
 
 input("按任意键退出")
+
