@@ -13,7 +13,7 @@ params = {
     "list": "logevents",
     "formatversion": 2,
     "leprop": "user",
-    "letype": "patrol",
+    "leaction": "patrol/patrol",
     "lelimit": "max",
 }
 
@@ -44,6 +44,8 @@ if current_time == "":
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 
 excel_filename = f"patrolcount-{current_time}.xlsx"
+
+base.login()
 
 print("启动成功", end='\n\n')
 
