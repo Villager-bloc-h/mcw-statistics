@@ -46,6 +46,8 @@ if current_time == "":
 
 excel_filename = f"editcount-{current_time}.xlsx"
 
+base.login()
+
 print("启动成功", end='\n\n')
 
 while True: # 获取所有修订版本的内容
