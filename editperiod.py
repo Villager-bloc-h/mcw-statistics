@@ -105,13 +105,23 @@ while row < 62: # 第七个表格内容初始化
     sheet7[f'B{row}'] = 0
     row += 1
 
+# 第八个工作表
+sheet8 = wb.create_sheet("按年月计")
+sheet8['A1'] = "年月"
+sheet8['B1'] = "编辑数"
+sheet8.column_dimensions['A'].width = 12.00
+
 year_dict = {}
+year_month_dict = {}
 
 for item in contribs_data:
     dt = base.extract_from_timestamp(item["timestamp"])
 
     year = dt.year
     year_dict[year] = year_dict.get(year, 0) + 1
+
+    year_month_key = f"{dt.year}-{dt.month:02d}"
+    year_month_dict[year_month_key] = year_month_dict.get(year_month_key, 0) + 1
 
     month = dt.month
     sheet2.cell(row=month+1, column=2).value += 1
@@ -135,6 +145,12 @@ row = 2
 for y in sorted(year_dict):
     sheet1[f'A{row}'] = y
     sheet1[f'B{row}'] = year_dict[y]
+    row += 1
+
+row = 2
+for ym in sorted(year_month_dict):
+    sheet8[f'A{row}'] = ym
+    sheet8[f'B{row}'] = year_month_dict[ym]
     row += 1
 
 current_time = datafile[-14:]
