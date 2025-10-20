@@ -21,6 +21,8 @@ elif minrev < 1:
     print("minrev超出范围，已重置为1")
     minrev = 1
 
+base.login()
+
 current_maxrev = base.get_last_diff()['query']['recentchanges'][0]['revid']
 
 if maxrev is None:
