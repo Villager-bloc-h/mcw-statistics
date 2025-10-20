@@ -59,6 +59,13 @@ def checkhiddenrc_get_config():  # checkhiddenrc.py读取配置
     return starttime, endtime
 
 
+def patrolintegration_get_config():  # patrolintegration.py读取配置
+    patrolintegration_config = config.get("patrolintegration", {})
+    starttime = patrolintegration_config.get("starttime")
+    endtime = patrolintegration_config.get("endtime")
+    return starttime, endtime
+
+
 def login():  # 尝试登录
     global session
 
