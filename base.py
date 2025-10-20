@@ -18,7 +18,7 @@ wiki_lang = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 
 
 if wiki not in wiki_lang:
     print("不存在此语言的Minecraft Wiki！")
-    input("按任意键退出")
+    input("按回车键退出")
     sys.exit(1)
 
 elif wiki == 'en':
@@ -88,7 +88,14 @@ def usercontribs_get_config():  # usercontribs.py读取配置
 def editperiod_get_config():  # editperiod.py读取配置
     editperiod_config = config.get("editperiod", {})
     datafile = editperiod_config.get("datafile")
-    return datafile
+    try:
+        with open(f"{datafile}.json", "r", encoding="utf-8") as contribs_file:
+            contribs_data = json.load(contribs_file)
+    except FileNotFoundError:
+        print("指定的文件不存在！")
+        input("按回车键退出")
+        sys.exit(1)
+    return datafile, contribs_data
 
 
 def activeusers_get_config():  # activeusers.py读取配置
@@ -96,6 +103,10 @@ def activeusers_get_config():  # activeusers.py读取配置
     usergroup_order = activeusers_config.get("usergroup_order")
     usergroup_mapping = activeusers_config.get("usergroup_mapping")
     mode = activeusers_config.get("mode")
+    if mode not in ["standard", "debug"]:
+        print("指定的模式不存在，请检查配置文件。")
+        input("按回车键退出")
+        sys.exit(1)
     return usergroup_order, usergroup_mapping, mode
 
 
@@ -126,7 +137,7 @@ def get_data(params):  # 从Mediawiki API获取数据
             time.sleep(20)
 
     print("重试失败，请检查网络连接。")
-    input("按任意键退出")
+    input("按回车键退出")
     sys.exit(1)
 
 
