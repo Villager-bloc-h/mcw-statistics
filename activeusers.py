@@ -76,6 +76,8 @@ user_list = {}
 last_rccontinue = ""
 loop_count = 0
 
+base.login()
+
 print("启动成功", end='\n\n')
 
 while True: # 获取过去一个月的最近更改详情
