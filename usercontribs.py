@@ -29,6 +29,8 @@ loop_count = 0
 
 current_time = datetime.now().strftime("%Y%m%d%H%M%S")
 
+base.login()
+
 print("启动成功", end='\n\n')
 
 while True:
