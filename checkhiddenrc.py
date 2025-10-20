@@ -1,4 +1,3 @@
-import math
 import time
 from bisect import bisect_left
 
@@ -96,4 +95,4 @@ for revid in arv_data:
         hidden_data.append(revid)
 
 for revid in hidden_data:
-    print(f"https://zh.minecraft.wiki/?diff={revid}")
+    print(f"{base.WIKI_BASE_URL}/?diff={revid}")
