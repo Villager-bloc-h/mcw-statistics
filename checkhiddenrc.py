@@ -4,6 +4,7 @@ from bisect import bisect_left
 import base
 
 starttime, endtime = base.checkhiddenrc_get_config()
+
 loop = 0
 
 arv_data = []  # (revid)
@@ -35,6 +36,10 @@ if endtime != "":
 
 last_rccontinue = ""
 last_arvcontinue = ""
+
+base.login()
+
+print("启动成功", end='\n\n')
 
 while True:
     time.sleep(3)
