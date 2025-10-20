@@ -117,5 +117,3 @@ print(f"Excel结果已保存至{excel_filename}")
 if os.path.exists("patrolcount_backup.json"):
     os.remove("patrolcount_backup.json")
     print("已删除JSON备份文件")
-
-input("按任意键退出")
