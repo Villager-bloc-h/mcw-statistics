@@ -151,5 +151,3 @@ if len(sorted_data) > TOP_N:
 if os.path.exists("editcount_backup.json"):
     os.remove("editcount_backup.json")
     print("已删除JSON备份文件")
-
-input("按任意键退出")
