@@ -41,5 +41,9 @@
     "checkhiddenrc": {
         "starttime": "2025-06-30T01:23:45Z",
         "endtime": ""
+    },
+    "patrolintegration": {
+        "starttime": "2023-11-12T00:00:00Z",
+        "endtime": ""
     }
 }
