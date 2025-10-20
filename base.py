@@ -112,11 +112,11 @@ def get_data(params):  # 从Mediawiki API获取数据
             return response.json()
         except requests.exceptions.RequestException:
             tries += 1
-            if tries > 1:
+            if tries > max_retries:
                 break
 
-            print("未获取到数据，20秒后重试。")
-            time.sleep(20)
+            print(f"未获取到数据，{retry_delay}秒后重试。")
+            time.sleep(retry_delay)
 
     print("重试失败，请检查网络连接。")
     input("按回车键退出")
@@ -165,6 +165,8 @@ with open("config.json", "r", encoding="utf-8") as config_file:
     wiki = config["wiki"]
     user_agent = config["user_agent"]
     timezone = int(config["timezone"])
+    max_retries = int(config["max_retries"])
+    retry_delay = int(config["retry_delay"])
     username = config["username"] if "username" in config else None
     password = config["password"] if "password" in config else None
 
