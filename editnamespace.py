@@ -1,18 +1,8 @@
-import json
-import sys
 import openpyxl
 
 import base
 
-datafile = base.editperiod_get_config()
-
-try:
-    with open(f"{datafile}.json", "r", encoding="utf-8") as contribs_file:
-        contribs_data = json.load(contribs_file)
-except FileNotFoundError:
-    print("指定的文件不存在！")
-    input("按任意键退出")
-    sys.exit(1)
+datafile, contribs_data = base.editperiod_get_config()
 
 username = contribs_data[0]["user"]
 
@@ -58,4 +48,3 @@ current_time = datafile[-14:]
 wb.save(f"{username}-editnamespace-{current_time}.xlsx")
 
 print(f"结果已保存至{username}-editnamespace-{current_time}.xlsx")
-input("按任意键退出")

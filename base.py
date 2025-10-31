@@ -6,64 +6,6 @@ import re
 import requests
 import datetime
 
-with open("config.json", "r", encoding="utf-8") as config_file:
-    config = json.load(config_file)
-    wiki = config["wiki"]
-    user_agent = config["user_agent"]
-    timezone = int(config["timezone"])
-    username = config["username"] if "username" in config else None
-    password = config["password"] if "password" in config else None
-
-wiki_lang = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']
-
-if wiki not in wiki_lang:
-    print("不存在此语言的Minecraft Wiki！")
-    input("按任意键退出")
-    sys.exit(1)
-
-elif wiki == 'en':
-    WIKI_BASE_URL = "https://minecraft.wiki"
-
-else:
-    WIKI_BASE_URL = f"https://{wiki}.minecraft.wiki"
-
-WIKI_API_URL = WIKI_BASE_URL + "/api.php"
-
-if username and password:
-    session = requests.Session()
-    session.headers.update({"User-Agent": user_agent})
-
-    # 获取登录token
-    r1 = session.get(WIKI_API_URL, params={
-        'action': 'query',
-        'meta': 'tokens',
-        'type': 'login',
-        'format': 'json'
-    })
-    login_token = r1.json()['query']['tokens']['logintoken']
-
-    # 提交用户名和密码
-    r2 = session.post(WIKI_API_URL, data={
-        'action': 'login',
-        'lgname': username,
-        'lgpassword': password,
-        'lgtoken': login_token,
-        'format': 'json'
-    })
-
-    # 检查登录结果
-    result = r2.json()
-    if result['login']['result'] == 'Success':
-        islogin = True
-        print("登录成功")
-    else:
-        islogin = False
-        print("登录失败：", result['login'])
-
-else:
-    print("未提供用户名和密码，将以未登录状态运作")
-    islogin = False
-
 
 def difftime_get_config():  # difftime.py读取配置
     difftime_config = config.get("difftime", {})
@@ -88,7 +30,14 @@ def usercontribs_get_config():  # usercontribs.py读取配置
 def editperiod_get_config():  # editperiod.py读取配置
     editperiod_config = config.get("editperiod", {})
     datafile = editperiod_config.get("datafile")
-    return datafile
+    try:
+        with open(f"{datafile}.json", "r", encoding="utf-8") as contribs_file:
+            contribs_data = json.load(contribs_file)
+    except FileNotFoundError:
+        print("指定的文件不存在！")
+        input("按回车键退出")
+        sys.exit(1)
+    return datafile, contribs_data
 
 
 def activeusers_get_config():  # activeusers.py读取配置
@@ -96,6 +45,10 @@ def activeusers_get_config():  # activeusers.py读取配置
     usergroup_order = activeusers_config.get("usergroup_order")
     usergroup_mapping = activeusers_config.get("usergroup_mapping")
     mode = activeusers_config.get("mode")
+    if mode not in ["standard", "debug"]:
+        print("指定的模式不存在，请检查配置文件。")
+        input("按回车键退出")
+        sys.exit(1)
     return usergroup_order, usergroup_mapping, mode
 
 
@@ -106,12 +59,59 @@ def checkhiddenrc_get_config():  # checkhiddenrc.py读取配置
     return starttime, endtime
 
 
+def patrolintegration_get_config():  # patrolintegration.py读取配置
+    patrolintegration_config = config.get("patrolintegration", {})
+    starttime = patrolintegration_config.get("starttime")
+    endtime = patrolintegration_config.get("endtime")
+    return starttime, endtime
+
+
+def login():  # 尝试登录
+    global session
+
+    if username and password:
+        session = requests.Session()
+        session.headers.update({"User-Agent": user_agent})
+
+        # 获取登录token
+        r1 = session.get(WIKI_API_URL, params={
+            'action': 'query',
+            'meta': 'tokens',
+            'type': 'login',
+            'format': 'json'
+        })
+        login_token = r1.json()['query']['tokens']['logintoken']
+
+        # 提交用户名和密码
+        r2 = session.post(WIKI_API_URL, data={
+            'action': 'login',
+            'lgname': username,
+            'lgpassword': password,
+            'lgtoken': login_token,
+            'format': 'json'
+        })
+
+        # 检查登录结果
+        result = r2.json()
+        if result['login']['result'] == 'Success':
+            print("登录成功")
+        else:
+            print("登录失败：", result['login'])
+            session = None
+
+    else:
+        print("未提供用户名和密码，将以未登录状态运作")
+        session = None
+    
+    return session
+
+
 def get_data(params):  # 从Mediawiki API获取数据
     tries = 0
     while 1:
         try:
-            if islogin:
-                response = session.post(WIKI_API_URL, data=params)
+            if session:
+                response = session.get(WIKI_API_URL, params=params)
             else:
                 response = requests.get(WIKI_API_URL, params=params, headers={"User-Agent": user_agent})
 
@@ -119,14 +119,14 @@ def get_data(params):  # 从Mediawiki API获取数据
             return response.json()
         except requests.exceptions.RequestException:
             tries += 1
-            if tries > 1:
+            if tries > max_retries:
                 break
 
-            print("未获取到数据，20秒后重试。")
-            time.sleep(20)
+            print(f"未获取到数据，{retry_delay}秒后重试。")
+            time.sleep(retry_delay)
 
     print("重试失败，请检查网络连接。")
-    input("按任意键退出")
+    input("按回车键退出")
     sys.exit(1)
 
 
@@ -165,3 +165,31 @@ def is_ip_address(s):
             re.match(ipv4_pattern, s) is not None or
             re.match(ipv6_pattern, s) is not None
     )
+
+
+with open("config.json", "r", encoding="utf-8") as config_file:
+    config = json.load(config_file)
+    wiki = config["wiki"]
+    user_agent = config["user_agent"]
+    timezone = int(config["timezone"])
+    max_retries = int(config["max_retries"])
+    retry_delay = int(config["retry_delay"])
+    username = config["username"] if "username" in config else None
+    password = config["password"] if "password" in config else None
+
+wiki_lang = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'lzh', 'nl', 'pt', 'ru', 'th', 'uk', 'zh', 'meta']
+
+if wiki not in wiki_lang:
+    print("不存在此语言的Minecraft Wiki！")
+    input("按回车键退出")
+    sys.exit(1)
+
+elif wiki == 'en':
+    WIKI_BASE_URL = "https://minecraft.wiki"
+
+else:
+    WIKI_BASE_URL = f"https://{wiki}.minecraft.wiki"
+
+WIKI_API_URL = WIKI_BASE_URL + "/api.php"
+
+# session = login()

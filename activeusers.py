@@ -1,4 +1,3 @@
-import sys
 import time
 from datetime import datetime, timedelta, timezone
 import openpyxl
@@ -41,11 +40,6 @@ elif mode == "debug": # 调试模式
     excel_filename = end_time.strftime("activeusers-%Y年%m月%d日%H时%M分-调试.xlsx")
     txt_filename = end_time.strftime("activeusers-%Y年%m月%d日%H时%M分-调试.txt")
 
-else:
-    print("指定的模式不存在，请检查配置文件。")
-    input("按任意键退出")
-    sys.exit(1)
-
 # API只接受UTC时间的时间戳，因此需要根据时区做合适处理
 end_time = end_time.replace(tzinfo=timezone(timedelta(hours=base.timezone)))
 start_time = start_time.replace(tzinfo=timezone(timedelta(hours=base.timezone)))
@@ -81,6 +75,8 @@ ws.column_dimensions['D'].width = 10.89
 user_list = {}
 last_rccontinue = ""
 loop_count = 0
+
+base.login()
 
 print("启动成功", end='\n\n')
 
@@ -214,4 +210,15 @@ with open(txt_filename, "w", encoding="utf-8") as f:
     f.write(wiki_content)
 print(f"Wiki表格已保存至{txt_filename}")
 
-input("按任意键退出")
+'''
+# 可能是未来要加入的内容
+params.update({
+        "rcprop": "user|loginfo|title|sizes|flags",
+    })
+活跃用户分数量化指标
+* 操作数x100
+* 增减字节数绝对值之和x0.01
+* 创建新页面次数x1000
+* 在内容命名空间进行编辑x500
+* 被封禁1次-10000
+'''

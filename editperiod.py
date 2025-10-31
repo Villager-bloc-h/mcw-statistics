@@ -1,18 +1,8 @@
-import json
-import sys
 import openpyxl
 
 import base
 
-datafile = base.editperiod_get_config()
-
-try:
-    with open(f"{datafile}.json", "r", encoding="utf-8") as contribs_file:
-        contribs_data = json.load(contribs_file)
-except FileNotFoundError:
-    print("指定的文件不存在！")
-    input("按任意键退出")
-    sys.exit(1)
+datafile, contribs_data = base.editperiod_get_config()
 
 username = contribs_data[0]["user"]
 
@@ -105,13 +95,23 @@ while row < 62: # 第七个表格内容初始化
     sheet7[f'B{row}'] = 0
     row += 1
 
+# 第八个工作表
+sheet8 = wb.create_sheet("按年月计")
+sheet8['A1'] = "年月"
+sheet8['B1'] = "编辑数"
+sheet8.column_dimensions['A'].width = 12.00
+
 year_dict = {}
+year_month_dict = {}
 
 for item in contribs_data:
     dt = base.extract_from_timestamp(item["timestamp"])
 
     year = dt.year
     year_dict[year] = year_dict.get(year, 0) + 1
+
+    year_month_key = f"{dt.year}-{dt.month:02d}"
+    year_month_dict[year_month_key] = year_month_dict.get(year_month_key, 0) + 1
 
     month = dt.month
     sheet2.cell(row=month+1, column=2).value += 1
@@ -137,8 +137,13 @@ for y in sorted(year_dict):
     sheet1[f'B{row}'] = year_dict[y]
     row += 1
 
+row = 2
+for ym in sorted(year_month_dict):
+    sheet8[f'A{row}'] = ym
+    sheet8[f'B{row}'] = year_month_dict[ym]
+    row += 1
+
 current_time = datafile[-14:]
 wb.save(f"{username}-editperiod-{current_time}.xlsx")
 
 print(f"结果已保存至{username}-editperiod-{current_time}.xlsx")
-input("按任意键退出")
