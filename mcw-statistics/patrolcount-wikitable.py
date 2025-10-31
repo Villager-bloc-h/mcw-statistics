@@ -13,7 +13,7 @@ params = {
     "list": "logevents",
     "formatversion": 2,
     "leprop": "user",
-    "letype": "patrol",
+    "letype": "patrol/patrol",
     "lelimit": "max",
 }
 
@@ -142,4 +142,5 @@ with open(txt_filename, "w", encoding="utf-8") as f:
 print(f"Wiki表格已保存至{txt_filename}")
 
 input("按任意键退出")
+
 
