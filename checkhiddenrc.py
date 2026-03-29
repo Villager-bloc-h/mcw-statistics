@@ -1,4 +1,3 @@
-import time
 from bisect import bisect_left
 from datetime import datetime
 

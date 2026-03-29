@@ -1,4 +1,3 @@
-import time
 import sys
 from datetime import datetime, timedelta
 
