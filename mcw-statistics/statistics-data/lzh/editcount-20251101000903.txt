@@ -1,0 +1,1120 @@
+{| class="wikitable sortable collapsible"
+|-
+! 排名 !! 用户名 !! 编辑数
+|-
+| 1 || [[User:SorajimaAsugawa|SorajimaAsugawa]] || 5373
+|-
+| 2 || [[User:Rostiger Bot|Rostiger Bot]] || 1796
+|-
+| 3 || [[User:Dianliang233|Dianliang233]] || 1636
+|-
+| 4 || [[User:繁繁芙芙|繁繁芙芙]] || 1398
+|-
+| 5 || [[User:Endearing Cat|Endearing Cat]] || 960
+|-
+| 6 || [[User:ENxJIA|ENxJIA]] || 930
+|-
+| 7 || [[User:Wilf233|Wilf233]] || 615
+|-
+| 8 || [[User:Delvin4519|Delvin4519]] || 534
+|-
+| 9 || [[User:DXGdoude|DXGdoude]] || 472
+|-
+| 10 || [[User:Anterdc99|Anterdc99]] || 465
+|-
+| 11 || [[User:Ultim 0|Ultim 0]] || 454
+|-
+| 12 || [[User:Dovisutu|Dovisutu]] || 393
+|-
+| 13 || [[User:TigerZhang|TigerZhang]] || 334
+|-
+| 14 || [[User:MysticNebula70|MysticNebula70]] || 315
+|-
+| 15 || [[User:Wilfbot|Wilfbot]] || 262
+|-
+| 16 || [[User:BoredYukolin|BoredYukolin]] || 239
+|-
+| 17 || [[User:Xyz123456|Xyz123456]] || 200
+|-
+| 18 || [[User:HlDoroWolf|HlDoroWolf]] || 193
+|-
+| 19 || [[User:Victim|Victim]] || 189
+|-
+| 20 || [[User:Siiftun1857|Siiftun1857]] || 177
+|-
+| 20 || [[User:TeaSummer|TeaSummer]] || 177
+|-
+| 22 || [[User:XiaoAnIsMe|XiaoAnIsMe]] || 162
+|-
+| 22 || [[User:Winston Sung|Winston Sung]] || 162
+|-
+| 24 || [[User:Cook Me Plox|Cook Me Plox]] || 157
+|-
+| 25 || [[User:Nbot+|Nbot+]] || 153
+|-
+| 26 || [[User:Lutece|Lutece]] || 140
+|-
+| 26 || [[User:5tyu6f|5tyu6f]] || 140
+|-
+| 28 || [[User:SpridmusZam|SpridmusZam]] || 137
+|-
+| 29 || [[User:Weipolix|Weipolix]] || 127
+|-
+| 30 || [[User:SkyEye FAST|SkyEye FAST]] || 119
+|-
+| 31 || [[User:物灵|物灵]] || 118
+|-
+| 31 || [[User:MarkusRost|MarkusRost]] || 118
+|-
+| 33 || [[User:Aed8814|Aed8814]] || 114
+|-
+| 34 || [[User:Thgabs|Thgabs]] || 101
+|-
+| 35 || [[User:Bei Dou|Bei Dou]] || 100
+|-
+| 35 || [[User:Lumincand|Lumincand]] || 100
+|-
+| 37 || [[User:SymORmaK|SymORmaK]] || 95
+|-
+| 38 || [[User:RealCuervo|RealCuervo]] || 93
+|-
+| 39 || [[User:Dream Star.cn|Dream Star.cn]] || 89
+|-
+| 40 || [[User:Suijiying|Suijiying]] || 85
+|-
+| 41 || [[User:Mykytius|Mykytius]] || 80
+|-
+| 42 || [[User:MetroKopUA|MetroKopUA]] || 79
+|-
+| 43 || [[User:Lxazl5770|Lxazl5770]] || 78
+|-
+| 44 || [[User:攻敔家司空宗|攻敔家司空宗]] || 70
+|-
+| 45 || [[User:Vil4ckc|Vil4ckc]] || 66
+|-
+| 46 || [[User:YukiSugar|YukiSugar]] || 64
+|-
+| 46 || [[User:31.133.54.8|31.133.54.8]] || 64
+|-
+| 48 || [[User:The Non Useful|The Non Useful]] || 62
+|-
+| 49 || [[User:Ff98sha|Ff98sha]] || 61
+|-
+| 50 || [[User:Villager-bloc-h|Villager-bloc-h]] || 60
+|-
+| 50 || [[User:Vinds476283|Vinds476283]] || 60
+|-
+| 50 || [[User:BluerainDawn|BluerainDawn]] || 60
+|-
+| 53 || [[User:FANDOM|FANDOM]] || 59
+|-
+| 54 || [[User:Winston Sung - zh|Winston Sung - zh]] || 58
+|-
+| 55 || [[User:Hatsuki kiri|Hatsuki kiri]] || 56
+|-
+| 55 || [[User:IcyPhantom|IcyPhantom]] || 56
+|-
+| 57 || [[User:Afulai2333|Afulai2333]] || 54
+|-
+| 57 || [[User:Vjfjng|Vjfjng]] || 54
+|-
+| 59 || [[User:Leo768|Leo768]] || 45
+|-
+| 60 || [[User:AblazeVase69188|AblazeVase69188]] || 43
+|-
+| 61 || [[User:Xujinxuan2008|Xujinxuan2008]] || 42
+|-
+| 61 || [[User:Gk 0|Gk 0]] || 42
+|-
+| 61 || [[User:IAmREGE|IAmREGE]] || 42
+|-
+| 61 || [[User:Snow dash|Snow dash]] || 42
+|-
+| 65 || [[User:Ffbot|Ffbot]] || 41
+|-
+| 66 || [[User:Herman|Herman]] || 40
+|-
+| 67 || [[User:Yukkuri Shambis|Yukkuri Shambis]] || 38
+|-
+| 67 || [[User:Minecraft365871|Minecraft365871]] || 38
+|-
+| 69 || [[User:58.248.208.142|58.248.208.142]] || 37
+|-
+| 70 || [[User:Yonghuming|Yonghuming]] || 36
+|-
+| 70 || [[User:Harri|Harri]] || 36
+|-
+| 72 || [[User:太极八荒了|太极八荒了]] || 35
+|-
+| 73 || [[User:Pawsdt|Pawsdt]] || 34
+|-
+| 73 || [[User:Windows phx|Windows phx]] || 34
+|-
+| 75 || [[User:Evan114514|Evan114514]] || 32
+|-
+| 76 || [[User:VECthba|VECthba]] || 31
+|-
+| 76 || [[User:Один человек|Один человек]] || 31
+|-
+| 78 || [[User:125.118.254.18|125.118.254.18]] || 27
+|-
+| 79 || [[User:120.238.101.87|120.238.101.87]] || 26
+|-
+| 79 || [[User:Lakejason0|Lakejason0]] || 26
+|-
+| 81 || [[User:XiaoXin666|XiaoXin666]] || 25
+|-
+| 81 || [[User:118.248.199.200|118.248.199.200]] || 25
+|-
+| 81 || [[User:Ja17|Ja17]] || 25
+|-
+| 81 || [[User:MuoniumCloud|MuoniumCloud]] || 25
+|-
+| 81 || [[User:Libamid|Libamid]] || 25
+|-
+| 81 || [[User:Colin 319|Colin 319]] || 25
+|-
+| 81 || [[User:Computerb|Computerb]] || 25
+|-
+| 81 || [[User:115.193.7.248|115.193.7.248]] || 25
+|-
+| 89 || [[User:SteveZihang|SteveZihang]] || 24
+|-
+| 89 || [[User:135ty|135ty]] || 24
+|-
+| 91 || [[User:Yoku|Yoku]] || 23
+|-
+| 91 || [[User:Erwan13430|Erwan13430]] || 23
+|-
+| 91 || [[User:Anonymous 1268274d-4657-45eb-bdfa-7f9db4d5931a|Anonymous 1268274d-4657-45eb-bdfa-7f9db4d5931a]] || 23
+|-
+| 91 || [[User:臨屯肜金縢|臨屯肜金縢]] || 23
+|-
+| 91 || [[User:168.150.55.187|168.150.55.187]] || 23
+|-
+| 91 || [[User:Noname114514|Noname114514]] || 23
+|-
+| 97 || [[User:365Kw|365Kw]] || 22
+|-
+| 97 || [[User:2408:8340:5427:1850:882F:2291:98F4:846D|2408:8340:5427:1850:882F:2291:98F4:846D]] || 22
+|-
+| 99 || [[User:Chilsumor|Chilsumor]] || 21
+|-
+| 99 || [[User:Nengneng|Nengneng]] || 21
+|-
+| 101 || [[User:上宮豐聰耳|上宮豐聰耳]] || 20
+|-
+| 101 || [[User:Llw1573|Llw1573]] || 20
+|-
+| 103 || [[User:2401:B60:16:17C:0:0:0:0|2401:B60:16:17C:0:0:0:0]] || 19
+|-
+| 103 || [[User:QWERTY-5238|QWERTY-5238]] || 19
+|-
+| 105 || [[User:118.232.17.127|118.232.17.127]] || 18
+|-
+| 105 || [[User:Cyclization P|Cyclization P]] || 18
+|-
+| 105 || [[User:Dianbot|Dianbot]] || 18
+|-
+| 108 || [[User:Mcnys64|Mcnys64]] || 17
+|-
+| 108 || [[User:Fabian Almarza|Fabian Almarza]] || 17
+|-
+| 108 || [[User:DXdianxin|DXdianxin]] || 17
+|-
+| 108 || [[User:Au0727|Au0727]] || 17
+|-
+| 108 || [[User:滝沢朔太郎|滝沢朔太郎]] || 17
+|-
+| 108 || [[User:Zyjking|Zyjking]] || 17
+|-
+| 108 || [[User:SPGoding|SPGoding]] || 17
+|-
+| 115 || [[User:HeArCrossbow|HeArCrossbow]] || 16
+|-
+| 115 || [[User:Violine1101|Violine1101]] || 16
+|-
+| 117 || [[User:CaN2crow987|CaN2crow987]] || 15
+|-
+| 117 || [[User:121.8.98.42|121.8.98.42]] || 15
+|-
+| 117 || [[User:ItsMyBabyQ|ItsMyBabyQ]] || 15
+|-
+| 120 || [[User:Weird Gloop|Weird Gloop]] || 14
+|-
+| 120 || [[User:78.213.121.191|78.213.121.191]] || 14
+|-
+| 120 || [[User:J zhui|J zhui]] || 14
+|-
+| 120 || [[User:OP|OP]] || 14
+|-
+| 120 || [[User:IBuckeeet|IBuckeeet]] || 14
+|-
+| 120 || [[User:115.206.233.127|115.206.233.127]] || 14
+|-
+| 126 || [[User:Emm|Emm]] || 13
+|-
+| 126 || [[User:Müller857|Müller857]] || 13
+|-
+| 126 || [[User:111.26.240.100|111.26.240.100]] || 13
+|-
+| 126 || [[User:122.234.190.42|122.234.190.42]] || 13
+|-
+| 126 || [[User:Timchen2001|Timchen2001]] || 13
+|-
+| 126 || [[User:Miemiemethod|Miemiemethod]] || 13
+|-
+| 132 || [[User:Enirboreh|Enirboreh]] || 12
+|-
+| 132 || [[User:Among Time|Among Time]] || 12
+|-
+| 132 || [[User:Myy730|Myy730]] || 12
+|-
+| 135 || [[User:Txt|Txt]] || 11
+|-
+| 135 || [[User:Pig001002|Pig001002]] || 11
+|-
+| 135 || [[User:ImpureVessel|ImpureVessel]] || 11
+|-
+| 135 || [[User:85.237.206.10|85.237.206.10]] || 11
+|-
+| 135 || [[User:Maintenance script|Maintenance script]] || 11
+|-
+| 135 || [[User:Patcho|Patcho]] || 11
+|-
+| 135 || [[User:Nấm Khói Độc|Nấm Khói Độc]] || 11
+|-
+| 135 || [[User:独孤剑|独孤剑]] || 11
+|-
+| 135 || [[User:Powup333|Powup333]] || 11
+|-
+| 144 || [[User:ESTEBAN1303YT|ESTEBAN1303YT]] || 10
+|-
+| 144 || [[User:Bill Stark|Bill Stark]] || 10
+|-
+| 144 || [[User:Mochi|Mochi]] || 10
+|-
+| 144 || [[User:KisinSagume286|KisinSagume286]] || 10
+|-
+| 144 || [[User:Yuhan2680|Yuhan2680]] || 10
+|-
+| 144 || [[User:CubicLoco|CubicLoco]] || 10
+|-
+| 144 || [[User:Windows Builder|Windows Builder]] || 10
+|-
+| 144 || [[User:Yzy32767|Yzy32767]] || 10
+|-
+| 144 || [[User:154.209.251.5|154.209.251.5]] || 10
+|-
+| 153 || [[User:CH TianLing|CH TianLing]] || 9
+|-
+| 153 || [[User:218.6.239.121|218.6.239.121]] || 9
+|-
+| 153 || [[User:Wenrun888|Wenrun888]] || 9
+|-
+| 153 || [[User:Lihl|Lihl]] || 9
+|-
+| 153 || [[User:ResiNights|ResiNights]] || 9
+|-
+| 153 || [[User:113.68.155.225|113.68.155.225]] || 9
+|-
+| 153 || [[User:MyNe70bot|MyNe70bot]] || 9
+|-
+| 160 || [[User:Mangoplay3058|Mangoplay3058]] || 8
+|-
+| 160 || [[User:Amoon1277|Amoon1277]] || 8
+|-
+| 160 || [[User:Kaohaaa|Kaohaaa]] || 8
+|-
+| 160 || [[User:2409:8A38:419:F410:F929:B36C:2624:E51A|2409:8A38:419:F410:F929:B36C:2624:E51A]] || 8
+|-
+| 160 || [[User:2401:E180:88A1:AF93:CDDE:8043:D372:B6D0|2401:E180:88A1:AF93:CDDE:8043:D372:B6D0]] || 8
+|-
+| 160 || [[User:Rexlex|Rexlex]] || 8
+|-
+| 160 || [[User:YanisBft|YanisBft]] || 8
+|-
+| 160 || [[User:GoldenDeep|GoldenDeep]] || 8
+|-
+| 160 || [[User:NerkinLive|NerkinLive]] || 8
+|-
+| 160 || [[User:KK899|KK899]] || 8
+|-
+| 160 || [[User:KaoYUG|KaoYUG]] || 8
+|-
+| 160 || [[User:Linyisong|Linyisong]] || 8
+|-
+| 160 || [[User:Louis0213|Louis0213]] || 8
+|-
+| 160 || [[User:ZwJimRaynor|ZwJimRaynor]] || 8
+|-
+| 160 || [[User:122.234.41.181|122.234.41.181]] || 8
+|-
+| 160 || [[User:KaplanSteve|KaplanSteve]] || 8
+|-
+| 160 || [[User:RedLightPOP|RedLightPOP]] || 8
+|-
+| 177 || [[User:Chougonry1|Chougonry1]] || 7
+|-
+| 177 || [[User:Wer1wer1|Wer1wer1]] || 7
+|-
+| 177 || [[User:Reverse88|Reverse88]] || 7
+|-
+| 177 || [[User:GejiXu|GejiXu]] || 7
+|-
+| 177 || [[User:Don Trueno|Don Trueno]] || 7
+|-
+| 177 || [[User:112.41.200.176|112.41.200.176]] || 7
+|-
+| 177 || [[User:122.234.41.253|122.234.41.253]] || 7
+|-
+| 177 || [[User:Light beacon|Light beacon]] || 7
+|-
+| 185 || [[User:IceWars1o1|IceWars1o1]] || 6
+|-
+| 185 || [[User:MC GK3|MC GK3]] || 6
+|-
+| 185 || [[User:Rert|Rert]] || 6
+|-
+| 185 || [[User:240E:39C:707:351:3C5E:27B8:89D2:4A1F|240E:39C:707:351:3C5E:27B8:89D2:4A1F]] || 6
+|-
+| 185 || [[User:Arimelonie|Arimelonie]] || 6
+|-
+| 185 || [[User:Itinatsunoyaku|Itinatsunoyaku]] || 6
+|-
+| 185 || [[User:66.90.98.218|66.90.98.218]] || 6
+|-
+| 185 || [[User:Tetzaton|Tetzaton]] || 6
+|-
+| 185 || [[User:Chixvv|Chixvv]] || 6
+|-
+| 185 || [[User:36.17.167.197|36.17.167.197]] || 6
+|-
+| 195 || [[User:Stanley5323|Stanley5323]] || 5
+|-
+| 195 || [[User:118.248.211.252|118.248.211.252]] || 5
+|-
+| 195 || [[User:OutHimic|OutHimic]] || 5
+|-
+| 195 || [[User:14.23.40.251|14.23.40.251]] || 5
+|-
+| 195 || [[User:85.237.207.197|85.237.207.197]] || 5
+|-
+| 195 || [[User:121.8.98.44|121.8.98.44]] || 5
+|-
+| 195 || [[User:天下一统|天下一统]] || 5
+|-
+| 195 || [[User:Clayblockunova|Clayblockunova]] || 5
+|-
+| 195 || [[User:PCwqyy|PCwqyy]] || 5
+|-
+| 195 || [[User:Slondo|Slondo]] || 5
+|-
+| 195 || [[User:Bedrocker|Bedrocker]] || 5
+|-
+| 195 || [[User:Tgmoss37|Tgmoss37]] || 5
+|-
+| 195 || [[User:120.238.101.95|120.238.101.95]] || 5
+|-
+| 195 || [[User:Oakar567|Oakar567]] || 5
+|-
+| 195 || [[User:Matheus4856|Matheus4856]] || 5
+|-
+| 195 || [[User:Rhyne230|Rhyne230]] || 5
+|-
+| 195 || [[User:Zhen r zyt|Zhen r zyt]] || 5
+|-
+| 195 || [[User:Odyssey08|Odyssey08]] || 5
+|-
+| 195 || [[User:呼儿|呼儿]] || 5
+|-
+| 195 || [[User:Tang891228|Tang891228]] || 5
+|-
+| 195 || [[User:JackBlock|JackBlock]] || 5
+|-
+| 195 || [[User:SzBot|SzBot]] || 5
+|-
+| 195 || [[User:ALWAYSFF|ALWAYSFF]] || 5
+|-
+| 218 || [[User:LiteraGame|LiteraGame]] || 4
+|-
+| 218 || [[User:Georgewdsjpcl2|Georgewdsjpcl2]] || 4
+|-
+| 218 || [[User:Sulfur-36|Sulfur-36]] || 4
+|-
+| 218 || [[User:MacrosMeng|MacrosMeng]] || 4
+|-
+| 218 || [[User:2401:B60:16:83:0:0:0:0|2401:B60:16:83:0:0:0:0]] || 4
+|-
+| 218 || [[User:121.34.222.39|121.34.222.39]] || 4
+|-
+| 218 || [[User:CainiaoAnKa|CainiaoAnKa]] || 4
+|-
+| 218 || [[User:168.150.13.149|168.150.13.149]] || 4
+|-
+| 218 || [[User:Anonymous 89c09502-06aa-4bf2-8d19-bdb6d364644c|Anonymous 89c09502-06aa-4bf2-8d19-bdb6d364644c]] || 4
+|-
+| 218 || [[User:Wkjfive|Wkjfive]] || 4
+|-
+| 218 || [[User:72.255.249.193|72.255.249.193]] || 4
+|-
+| 218 || [[User:NECO|NECO]] || 4
+|-
+| 218 || [[User:120.227.119.85|120.227.119.85]] || 4
+|-
+| 218 || [[User:Secret-Rabbit|Secret-Rabbit]] || 4
+|-
+| 218 || [[User:112.41.200.21|112.41.200.21]] || 4
+|-
+| 218 || [[User:Asassin 1|Asassin 1]] || 4
+|-
+| 218 || [[User:14.156.200.114|14.156.200.114]] || 4
+|-
+| 218 || [[User:Yulizi|Yulizi]] || 4
+|-
+| 218 || [[User:Wynthyst|Wynthyst]] || 4
+|-
+| 218 || [[User:translatewiki>FuzzyBot|translatewiki>FuzzyBot]] || 4
+|-
+| 238 || [[User:I486-DX9|I486-DX9]] || 3
+|-
+| 238 || [[User:烨凌|烨凌]] || 3
+|-
+| 238 || [[User:Ccf|Ccf]] || 3
+|-
+| 238 || [[User:Hyuga aratihs|Hyuga aratihs]] || 3
+|-
+| 238 || [[User:Fkuccf|Fkuccf]] || 3
+|-
+| 238 || [[User:Ytl0727|Ytl0727]] || 3
+|-
+| 238 || [[User:Orie124|Orie124]] || 3
+|-
+| 238 || [[User:芥末番茄饭|芥末番茄饭]] || 3
+|-
+| 238 || [[User:240E:390:6AAD:F850:3018:29E1:648:4003|240E:390:6AAD:F850:3018:29E1:648:4003]] || 3
+|-
+| 238 || [[User:Lebot768|Lebot768]] || 3
+|-
+| 238 || [[User:1.65.255.175|1.65.255.175]] || 3
+|-
+| 238 || [[User:Abigpigeon|Abigpigeon]] || 3
+|-
+| 238 || [[User:Hikari|Hikari]] || 3
+|-
+| 238 || [[User:Hjtv|Hjtv]] || 3
+|-
+| 238 || [[User:ZhangchengG237|ZhangchengG237]] || 3
+|-
+| 238 || [[User:240E:3A1:BE1:2810:793D:6EB2:BF2C:ED83|240E:3A1:BE1:2810:793D:6EB2:BF2C:ED83]] || 3
+|-
+| 238 || [[User:168.150.43.141|168.150.43.141]] || 3
+|-
+| 238 || [[User:Rain-Flying|Rain-Flying]] || 3
+|-
+| 238 || [[User:1.200.255.226|1.200.255.226]] || 3
+|-
+| 238 || [[User:123.234.87.106|123.234.87.106]] || 3
+|-
+| 238 || [[User:Ral-hole|Ral-hole]] || 3
+|-
+| 238 || [[User:小方塊|小方塊]] || 3
+|-
+| 238 || [[User:Nether quartz ore|Nether quartz ore]] || 3
+|-
+| 238 || [[User:Zamburger|Zamburger]] || 3
+|-
+| 238 || [[User:张明陈欣何怡方雨|张明陈欣何怡方雨]] || 3
+|-
+| 238 || [[User:我叫白菜666|我叫白菜666]] || 3
+|-
+| 238 || [[User:Iname5110|Iname5110]] || 3
+|-
+| 238 || [[User:ChernegaSergiy|ChernegaSergiy]] || 3
+|-
+| 238 || [[User:4²K|4²K]] || 3
+|-
+| 238 || [[User:2409:8A28:54B1:93A0:4E73:CF12:A8E0:3972|2409:8A28:54B1:93A0:4E73:CF12:A8E0:3972]] || 3
+|-
+| 238 || [[User:MinecraftXZY|MinecraftXZY]] || 3
+|-
+| 238 || [[User:HongShiYH|HongShiYH]] || 3
+|-
+| 238 || [[User:Miner233|Miner233]] || 3
+|-
+| 238 || [[User:113.68.154.40|113.68.154.40]] || 3
+|-
+| 238 || [[User:LukasAxelsen|LukasAxelsen]] || 3
+|-
+| 238 || [[User:115.206.232.51|115.206.232.51]] || 3
+|-
+| 238 || [[User:14.120.34.236|14.120.34.236]] || 3
+|-
+| 238 || [[User:116.3.147.54|116.3.147.54]] || 3
+|-
+| 238 || [[User:Star00|Star00]] || 3
+|-
+| 238 || [[User:Nfzyz|Nfzyz]] || 3
+|-
+| 238 || [[User:Hatsukibot|Hatsukibot]] || 3
+|-
+| 238 || [[User:Unavailablehoax|Unavailablehoax]] || 3
+|-
+| 238 || [[User:Mcwitherske|Mcwitherske]] || 3
+|-
+| 238 || [[User:OasisAkari|OasisAkari]] || 3
+|-
+| 238 || [[User:WuGuangYao2012|WuGuangYao2012]] || 3
+|-
+| 238 || [[User:SolidBlock|SolidBlock]] || 3
+|-
+| 238 || [[User:Keeeeymann|Keeeeymann]] || 3
+|-
+| 238 || [[User:Sjjklh|Sjjklh]] || 3
+|-
+| 286 || [[User:幻星303|幻星303]] || 2
+|-
+| 286 || [[User:2409:891F:10A0:C5EE:1870:78CB:DFF2:CA95|2409:891F:10A0:C5EE:1870:78CB:DFF2:CA95]] || 2
+|-
+| 286 || [[User:MinecraftFlower2025|MinecraftFlower2025]] || 2
+|-
+| 286 || [[User:2408:8215:4118:F4B0:7645:2DFF:FE79:1871|2408:8215:4118:F4B0:7645:2DFF:FE79:1871]] || 2
+|-
+| 286 || [[User:Magic|Magic]] || 2
+|-
+| 286 || [[User:149.88.103.37|149.88.103.37]] || 2
+|-
+| 286 || [[User:设置|设置]] || 2
+|-
+| 286 || [[User:149.88.103.35|149.88.103.35]] || 2
+|-
+| 286 || [[User:神玄龙我的世界|神玄龙我的世界]] || 2
+|-
+| 286 || [[User:Tsyquot|Tsyquot]] || 2
+|-
+| 286 || [[User:Nesekf|Nesekf]] || 2
+|-
+| 286 || [[User:112.102.214.2|112.102.214.2]] || 2
+|-
+| 286 || [[User:Teddyxlandlee|Teddyxlandlee]] || 2
+|-
+| 286 || [[User:Sam the 54|Sam the 54]] || 2
+|-
+| 286 || [[User:240E:39C:707:351:C4F4:83CB:5088:9091|240E:39C:707:351:C4F4:83CB:5088:9091]] || 2
+|-
+| 286 || [[User:YuJunXiang|YuJunXiang]] || 2
+|-
+| 286 || [[User:Ylanoïde|Ylanoïde]] || 2
+|-
+| 286 || [[User:Kork0za|Kork0za]] || 2
+|-
+| 286 || [[User:Pedrojoga5766|Pedrojoga5766]] || 2
+|-
+| 286 || [[User:124.156.141.140|124.156.141.140]] || 2
+|-
+| 286 || [[User:Kingcat|Kingcat]] || 2
+|-
+| 286 || [[User:107.77.211.141|107.77.211.141]] || 2
+|-
+| 286 || [[User:2A09|2A09]] || 2
+|-
+| 286 || [[User:62.100.205.48|62.100.205.48]] || 2
+|-
+| 286 || [[User:Wengaojun|Wengaojun]] || 2
+|-
+| 286 || [[User:12.75.210.93|12.75.210.93]] || 2
+|-
+| 286 || [[User:JiarongGuo|JiarongGuo]] || 2
+|-
+| 286 || [[User:大力狗|大力狗]] || 2
+|-
+| 286 || [[User:14.31.169.1|14.31.169.1]] || 2
+|-
+| 286 || [[User:AM1N0S|AM1N0S]] || 2
+|-
+| 286 || [[User:SVIP|SVIP]] || 2
+|-
+| 286 || [[User:Prem4826|Prem4826]] || 2
+|-
+| 286 || [[User:14.150.104.153|14.150.104.153]] || 2
+|-
+| 286 || [[User:Faariaz|Faariaz]] || 2
+|-
+| 286 || [[User:2409:8A3C:377E:AD81:61F5:E35D:A281:B1FC|2409:8A3C:377E:AD81:61F5:E35D:A281:B1FC]] || 2
+|-
+| 286 || [[User:Rowboat123|Rowboat123]] || 2
+|-
+| 286 || [[User:49.77.57.2|49.77.57.2]] || 2
+|-
+| 286 || [[User:2408:8240:541F:16C0:5434:C675:1B24:E17|2408:8240:541F:16C0:5434:C675:1B24:E17]] || 2
+|-
+| 286 || [[User:2408:8240:5418:A840:FD1A:C4CC:6C4A:3F3E|2408:8240:5418:A840:FD1A:C4CC:6C4A:3F3E]] || 2
+|-
+| 286 || [[User:175.18.157.40|175.18.157.40]] || 2
+|-
+| 286 || [[User:Minecraft48074|Minecraft48074]] || 2
+|-
+| 286 || [[User:GB-2312|GB-2312]] || 2
+|-
+| 286 || [[User:43.243.192.91|43.243.192.91]] || 2
+|-
+| 286 || [[User:Liaoxiangbin|Liaoxiangbin]] || 2
+|-
+| 286 || [[User:Eletron ProCoress|Eletron ProCoress]] || 2
+|-
+| 286 || [[User:Charllie1226|Charllie1226]] || 2
+|-
+| 286 || [[User:240E:36F:41B:9B60:AC25:19C7:91E0:F8A3|240E:36F:41B:9B60:AC25:19C7:91E0:F8A3]] || 2
+|-
+| 286 || [[User:Fresh fish 233|Fresh fish 233]] || 2
+|-
+| 286 || [[User:Ch3cooh|Ch3cooh]] || 2
+|-
+| 286 || [[User:223.67.43.140|223.67.43.140]] || 2
+|-
+| 286 || [[User:129.97.125.2|129.97.125.2]] || 2
+|-
+| 286 || [[User:116.3.157.247|116.3.157.247]] || 2
+|-
+| 286 || [[User:Sammy Serenia|Sammy Serenia]] || 2
+|-
+| 286 || [[User:Sapnapneverdie|Sapnapneverdie]] || 2
+|-
+| 286 || [[User:Grayen|Grayen]] || 2
+|-
+| 286 || [[User:112.36.198.68|112.36.198.68]] || 2
+|-
+| 286 || [[User:14.150.137.137|14.150.137.137]] || 2
+|-
+| 286 || [[User:14.150.219.196|14.150.219.196]] || 2
+|-
+| 286 || [[User:Hldbot|Hldbot]] || 2
+|-
+| 286 || [[User:Mini uzi in PRC|Mini uzi in PRC]] || 2
+|-
+| 286 || [[User:124.64.120.145|124.64.120.145]] || 2
+|-
+| 286 || [[User:182.202.170.128|182.202.170.128]] || 2
+|-
+| 286 || [[User:冰川橘子|冰川橘子]] || 2
+|-
+| 286 || [[User:I make userpages|I make userpages]] || 2
+|-
+| 286 || [[User:175.162.170.225|175.162.170.225]] || 2
+|-
+| 286 || [[User:116.3.146.86|116.3.146.86]] || 2
+|-
+| 286 || [[User:Ian-zb|Ian-zb]] || 2
+|-
+| 286 || [[User:FANDOMBot|FANDOMBot]] || 2
+|-
+| 286 || [[User:传入神经元|传入神经元]] || 2
+|-
+| 286 || [[User:Yfohdit|Yfohdit]] || 2
+|-
+| 286 || [[User:Ivan-r|Ivan-r]] || 2
+|-
+| 286 || [[User:116.16.155.207|116.16.155.207]] || 2
+|-
+| 286 || [[User:Arthur200000|Arthur200000]] || 2
+|-
+| 286 || [[User:Angrydog001|Angrydog001]] || 2
+|-
+| 360 || [[User:Dazzle|Dazzle]] || 1
+|-
+| 360 || [[User:2409:891B:2E2A:A04E:CA8:3A8B:986C:FE84|2409:891B:2E2A:A04E:CA8:3A8B:986C:FE84]] || 1
+|-
+| 360 || [[User:Aiden8115|Aiden8115]] || 1
+|-
+| 360 || [[User:2409:8A38:C622:851:9A1:5E6E:CC3B:C958|2409:8A38:C622:851:9A1:5E6E:CC3B:C958]] || 1
+|-
+| 360 || [[User:117.40.253.205|117.40.253.205]] || 1
+|-
+| 360 || [[User:240E:3A1:BE2:6420:7524:7541:D05F:D890|240E:3A1:BE2:6420:7524:7541:D05F:D890]] || 1
+|-
+| 360 || [[User:Sukaretto215|Sukaretto215]] || 1
+|-
+| 360 || [[User:Am3tcy|Am3tcy]] || 1
+|-
+| 360 || [[User:58.240.194.98|58.240.194.98]] || 1
+|-
+| 360 || [[User:240E:604:792:5BC2:303F:6D93:37C7:50C8|240E:604:792:5BC2:303F:6D93:37C7:50C8]] || 1
+|-
+| 360 || [[User:58.253.41.1|58.253.41.1]] || 1
+|-
+| 360 || [[User:15.204.97.213|15.204.97.213]] || 1
+|-
+| 360 || [[User:Mkp|Mkp]] || 1
+|-
+| 360 || [[User:117.143.147.131|117.143.147.131]] || 1
+|-
+| 360 || [[User:112.39.29.163|112.39.29.163]] || 1
+|-
+| 360 || [[User:Wiwi12345|Wiwi12345]] || 1
+|-
+| 360 || [[User:4tubborn|4tubborn]] || 1
+|-
+| 360 || [[User:52.196.242.13|52.196.242.13]] || 1
+|-
+| 360 || [[User:Vesekskiy|Vesekskiy]] || 1
+|-
+| 360 || [[User:240E:476:6C45:19ED:F89E:B6FF:FE19:7E4F|240E:476:6C45:19ED:F89E:B6FF:FE19:7E4F]] || 1
+|-
+| 360 || [[User:218.207.101.182|218.207.101.182]] || 1
+|-
+| 360 || [[User:50.7.253.114|50.7.253.114]] || 1
+|-
+| 360 || [[User:Aashaby|Aashaby]] || 1
+|-
+| 360 || [[User:2408:821B:9D10:D410:CD9E:E023:BC81:3BBF|2408:821B:9D10:D410:CD9E:E023:BC81:3BBF]] || 1
+|-
+| 360 || [[User:Shaohe1210|Shaohe1210]] || 1
+|-
+| 360 || [[User:240E:391:E03:1501:5151:6D0F:65D8:BDF4|240E:391:E03:1501:5151:6D0F:65D8:BDF4]] || 1
+|-
+| 360 || [[User:109.236.80.38|109.236.80.38]] || 1
+|-
+| 360 || [[User:91.243.81.50|91.243.81.50]] || 1
+|-
+| 360 || [[User:Рув|Рув]] || 1
+|-
+| 360 || [[User:Mr.t|Mr.t]] || 1
+|-
+| 360 || [[User:112.39.32.164|112.39.32.164]] || 1
+|-
+| 360 || [[User:120.225.27.60|120.225.27.60]] || 1
+|-
+| 360 || [[User:Ra1n60w|Ra1n60w]] || 1
+|-
+| 360 || [[User:ウィキ助|ウィキ助]] || 1
+|-
+| 360 || [[User:あおいろ|あおいろ]] || 1
+|-
+| 360 || [[User:2409:8A50:1054:3D40:A8F5:201A:DAD1:6DEF|2409:8A50:1054:3D40:A8F5:201A:DAD1:6DEF]] || 1
+|-
+| 360 || [[User:XZYR1|XZYR1]] || 1
+|-
+| 360 || [[User:2409:8A1E:8F23:3020:582D:8BF3:4E98:42A4|2409:8A1E:8F23:3020:582D:8BF3:4E98:42A4]] || 1
+|-
+| 360 || [[User:2409:8A50:1052:95A0:6929:7852:A837:EEAE|2409:8A50:1052:95A0:6929:7852:A837:EEAE]] || 1
+|-
+| 360 || [[User:183.200.2.126|183.200.2.126]] || 1
+|-
+| 360 || [[User:54.169.162.66|54.169.162.66]] || 1
+|-
+| 360 || [[User:2409:8949:2818:11E:1844:C300:C7BD:4196|2409:8949:2818:11E:1844:C300:C7BD:4196]] || 1
+|-
+| 360 || [[User:114.46.180.2|114.46.180.2]] || 1
+|-
+| 360 || [[User:114.228.163.177|114.228.163.177]] || 1
+|-
+| 360 || [[User:117.61.106.193|117.61.106.193]] || 1
+|-
+| 360 || [[User:D0Rm1R|D0Rm1R]] || 1
+|-
+| 360 || [[User:Bjastkuliar|Bjastkuliar]] || 1
+|-
+| 360 || [[User:Uinjm|Uinjm]] || 1
+|-
+| 360 || [[User:203.168.16.72|203.168.16.72]] || 1
+|-
+| 360 || [[User:2409:8A55:56B7:C0:4463:43D7:D4A:B56F|2409:8A55:56B7:C0:4463:43D7:D4A:B56F]] || 1
+|-
+| 360 || [[User:183.241.165.179|183.241.165.179]] || 1
+|-
+| 360 || [[User:FeedbackBot will be used for LTA trolling until morale improves|FeedbackBot will be used for LTA trolling until morale improves]] || 1
+|-
+| 360 || [[User:123.240.48.137|123.240.48.137]] || 1
+|-
+| 360 || [[User:SaoMikoto|SaoMikoto]] || 1
+|-
+| 360 || [[User:240E:345:518:A200:1512:A4C5:E9B4:7DFD|240E:345:518:A200:1512:A4C5:E9B4:7DFD]] || 1
+|-
+| 360 || [[User:117.61.111.175|117.61.111.175]] || 1
+|-
+| 360 || [[User:2408:8214:C20:FB10:3D71:1512:308A:930F|2408:8214:C20:FB10:3D71:1512:308A:930F]] || 1
+|-
+| 360 || [[User:Mtester|Mtester]] || 1
+|-
+| 360 || [[User:2408:8207:C50:107C:994:1B48:5518:BF76|2408:8207:C50:107C:994:1B48:5518:BF76]] || 1
+|-
+| 360 || [[User:240E:345:52D:2500:7D14:EA35:3732:4BEF|240E:345:52D:2500:7D14:EA35:3732:4BEF]] || 1
+|-
+| 360 || [[User:31.223.184.124|31.223.184.124]] || 1
+|-
+| 360 || [[User:107.77.211.4|107.77.211.4]] || 1
+|-
+| 360 || [[User:2408:832E:6B4:6E1:490F:E676:A693:7674|2408:832E:6B4:6E1:490F:E676:A693:7674]] || 1
+|-
+| 360 || [[User:PaperCupCouldDo|PaperCupCouldDo]] || 1
+|-
+| 360 || [[User:2408:8214:C20:FB10:141A:D62C:9F05:3E70|2408:8214:C20:FB10:141A:D62C:9F05:3E70]] || 1
+|-
+| 360 || [[User:223.89.49.185|223.89.49.185]] || 1
+|-
+| 360 || [[User:Хімія|Хімія]] || 1
+|-
+| 360 || [[User:BassMC23333|BassMC23333]] || 1
+|-
+| 360 || [[User:Daxin666|Daxin666]] || 1
+|-
+| 360 || [[User:168.150.103.51|168.150.103.51]] || 1
+|-
+| 360 || [[User:175.18.157.80|175.18.157.80]] || 1
+|-
+| 360 || [[User:113.227.65.237|113.227.65.237]] || 1
+|-
+| 360 || [[User:Mzh|Mzh]] || 1
+|-
+| 360 || [[User:240E:47E:1610:2EEF:603C:DF70:7FC3:3CFA|240E:47E:1610:2EEF:603C:DF70:7FC3:3CFA]] || 1
+|-
+| 360 || [[User:183.9.103.116|183.9.103.116]] || 1
+|-
+| 360 || [[User:Qweiou21223|Qweiou21223]] || 1
+|-
+| 360 || [[User:120.238.102.234|120.238.102.234]] || 1
+|-
+| 360 || [[User:101.80.46.186|101.80.46.186]] || 1
+|-
+| 360 || [[User:Shyzj666666|Shyzj666666]] || 1
+|-
+| 360 || [[User:58.248.208.154|58.248.208.154]] || 1
+|-
+| 360 || [[User:121.8.98.43|121.8.98.43]] || 1
+|-
+| 360 || [[User:240E:47E:AB0:1CD8:4079:C5BC:23CD:41FE|240E:47E:AB0:1CD8:4079:C5BC:23CD:41FE]] || 1
+|-
+| 360 || [[User:Ryoya|Ryoya]] || 1
+|-
+| 360 || [[User:52.10.74.103|52.10.74.103]] || 1
+|-
+| 360 || [[User:Liuzhiyu|Liuzhiyu]] || 1
+|-
+| 360 || [[User:2408:8340:5429:99C0:942F:7A56:B6BB:E4A7|2408:8340:5429:99C0:942F:7A56:B6BB:E4A7]] || 1
+|-
+| 360 || [[User:Bobby|Bobby]] || 1
+|-
+| 360 || [[User:Wang123|Wang123]] || 1
+|-
+| 360 || [[User:CrazyLemonGuy|CrazyLemonGuy]] || 1
+|-
+| 360 || [[User:DGZJZCYZ|DGZJZCYZ]] || 1
+|-
+| 360 || [[User:Herobrine222376|Herobrine222376]] || 1
+|-
+| 360 || [[User:Hacker (no block user)|Hacker (no block user)]] || 1
+|-
+| 360 || [[User:MathYellow|MathYellow]] || 1
+|-
+| 360 || [[User:Tserrurian|Tserrurian]] || 1
+|-
+| 360 || [[User:60.1.8.153|60.1.8.153]] || 1
+|-
+| 360 || [[User:LemonBread|LemonBread]] || 1
+|-
+| 360 || [[User:2408:8444:6F80:56C:39CE:B745:6352:EC8C|2408:8444:6F80:56C:39CE:B745:6352:EC8C]] || 1
+|-
+| 360 || [[User:117.61.192.65|117.61.192.65]] || 1
+|-
+| 360 || [[User:2408:8340:542B:3D00:C1CB:3314:3190:7713|2408:8340:542B:3D00:C1CB:3314:3190:7713]] || 1
+|-
+| 360 || [[User:119.2.235.157|119.2.235.157]] || 1
+|-
+| 360 || [[User:2001:4456:C60:9000:A09E:2015:44B5:ECD9|2001:4456:C60:9000:A09E:2015:44B5:ECD9]] || 1
+|-
+| 360 || [[User:普普通通方块人|普普通通方块人]] || 1
+|-
+| 360 || [[User:2409:8A00:8583:1A00:CAE:8094:8817:438E|2409:8A00:8583:1A00:CAE:8094:8817:438E]] || 1
+|-
+| 360 || [[User:WoozieSA|WoozieSA]] || 1
+|-
+| 360 || [[User:KobeBryant|KobeBryant]] || 1
+|-
+| 360 || [[User:110.180.188.198|110.180.188.198]] || 1
+|-
+| 360 || [[User:118.76.129.163|118.76.129.163]] || 1
+|-
+| 360 || [[User:2408:8240:5419:2100:882F:2291:98F4:846D|2408:8240:5419:2100:882F:2291:98F4:846D]] || 1
+|-
+| 360 || [[User:101.70.133.148|101.70.133.148]] || 1
+|-
+| 360 || [[User:2408:8340:5421:6210:E4A3:52F1:743:B54|2408:8340:5421:6210:E4A3:52F1:743:B54]] || 1
+|-
+| 360 || [[User:240E:47C:2E50:663E:8DD:CC8B:402F:A4C3|240E:47C:2E50:663E:8DD:CC8B:402F:A4C3]] || 1
+|-
+| 360 || [[User:240E:345:150A:BA00:ED4C:18F3:2632:6C73|240E:345:150A:BA00:ED4C:18F3:2632:6C73]] || 1
+|-
+| 360 || [[User:Xyhddd|Xyhddd]] || 1
+|-
+| 360 || [[User:117.61.17.52|117.61.17.52]] || 1
+|-
+| 360 || [[User:FlareAP|FlareAP]] || 1
+|-
+| 360 || [[User:Proxima Centauri A 8745|Proxima Centauri A 8745]] || 1
+|-
+| 360 || [[User:Benben|Benben]] || 1
+|-
+| 360 || [[User:112.39.29.252|112.39.29.252]] || 1
+|-
+| 360 || [[User:111.37.248.75|111.37.248.75]] || 1
+|-
+| 360 || [[User:记得有个好心情|记得有个好心情]] || 1
+|-
+| 360 || [[User:122.100.88.89|122.100.88.89]] || 1
+|-
+| 360 || [[User:61.221.110.46|61.221.110.46]] || 1
+|-
+| 360 || [[User:MCluoluo|MCluoluo]] || 1
+|-
+| 360 || [[User:112.39.28.40|112.39.28.40]] || 1
+|-
+| 360 || [[User:1.189.116.162|1.189.116.162]] || 1
+|-
+| 360 || [[User:1.189.148.14|1.189.148.14]] || 1
+|-
+| 360 || [[User:好吃的玉米|好吃的玉米]] || 1
+|-
+| 360 || [[User:2620:101:F000:701:C5:33B0:39E7:C4F1|2620:101:F000:701:C5:33B0:39E7:C4F1]] || 1
+|-
+| 360 || [[User:阿良|阿良]] || 1
+|-
+| 360 || [[User:14.23.4.120|14.23.4.120]] || 1
+|-
+| 360 || [[User:CrepaRB|CrepaRB]] || 1
+|-
+| 360 || [[User:Az7627|Az7627]] || 1
+|-
+| 360 || [[User:175.10.10.5|175.10.10.5]] || 1
+|-
+| 360 || [[User:FallenQAQ|FallenQAQ]] || 1
+|-
+| 360 || [[User:Nickid2018|Nickid2018]] || 1
+|-
+| 360 || [[User:1.31.115.47|1.31.115.47]] || 1
+|-
+| 360 || [[User:Xtex|Xtex]] || 1
+|-
+| 360 || [[User:119.34.174.134|119.34.174.134]] || 1
+|-
+| 360 || [[User:Djx333|Djx333]] || 1
+|-
+| 360 || [[User:BlueApple233|BlueApple233]] || 1
+|-
+| 360 || [[User:Shimamura Tako|Shimamura Tako]] || 1
+|-
+| 360 || [[User:TianxiaYitong|TianxiaYitong]] || 1
+|-
+| 360 || [[User:Mobaiah|Mobaiah]] || 1
+|-
+| 360 || [[User:CommandUser|CommandUser]] || 1
+|-
+| 360 || [[User:Wodemc|Wodemc]] || 1
+|-
+| 360 || [[User:方而静|方而静]] || 1
+|-
+| 360 || [[User:Squidcat1234|Squidcat1234]] || 1
+|-
+| 360 || [[User:Beams000|Beams000]] || 1
+|-
+| 360 || [[User:Terlity|Terlity]] || 1
+|-
+| 360 || [[User:Tgmoss|Tgmoss]] || 1
+|-
+| 360 || [[User:61.140.180.121|61.140.180.121]] || 1
+|-
+| 360 || [[User:DreamCloud0w0|DreamCloud0w0]] || 1
+|-
+| 360 || [[User:113.68.155.98|113.68.155.98]] || 1
+|-
+| 360 || [[User:Enderman173840|Enderman173840]] || 1
+|-
+| 360 || [[User:178.249.213.174|178.249.213.174]] || 1
+|-
+| 360 || [[User:36.227.215.157|36.227.215.157]] || 1
+|-
+| 360 || [[User:61.140.183.147|61.140.183.147]] || 1
+|-
+| 360 || [[User:183.46.70.72|183.46.70.72]] || 1
+|-
+| 360 || [[User:174.4.32.108|174.4.32.108]] || 1
+|-
+| 360 || [[User:104.249.174.138|104.249.174.138]] || 1
+|-
+| 360 || [[User:ENJIAx|ENJIAx]] || 1
+|-
+| 360 || [[User:175.162.166.83|175.162.166.83]] || 1
+|-
+| 360 || [[User:ThrSerTyrPro|ThrSerTyrPro]] || 1
+|-
+| 360 || [[User:115.195.106.166|115.195.106.166]] || 1
+|-
+| 360 || [[User:36.19.166.56|36.19.166.56]] || 1
+|-
+| 360 || [[User:36.19.112.16|36.19.112.16]] || 1
+|-
+| 360 || [[User:Ztl666|Ztl666]] || 1
+|-
+| 360 || [[User:TheFort14th|TheFort14th]] || 1
+|-
+| 360 || [[User:McplayerFS|McplayerFS]] || 1
+|-
+| 360 || [[User:113.234.80.5|113.234.80.5]] || 1
+|-
+| 360 || [[User:Thaumic Copper|Thaumic Copper]] || 1
+|-
+| 360 || [[User:Sigma166|Sigma166]] || 1
+|-
+| 360 || [[User:Kawayifork|Kawayifork]] || 1
+|-
+| 360 || [[User:Lxazl7550|Lxazl7550]] || 1
+|-
+| 360 || [[User:PexEric|PexEric]] || 1
+|-
+| 360 || [[User:175.163.81.54|175.163.81.54]] || 1
+|-
+| 360 || [[User:MonkeysHK|MonkeysHK]] || 1
+|-
+| 360 || [[User:DrLee lihr|DrLee lihr]] || 1
+|-
+| 360 || [[User:Milkory|Milkory]] || 1
+|-
+| 360 || [[User:2190303755|2190303755]] || 1
+|-
+| 360 || [[User:Toeds|Toeds]] || 1
+|-
+| 360 || [[User:Gerongfenh|Gerongfenh]] || 1
+|-
+| 360 || [[User:MakandIv|MakandIv]] || 1
+|-
+| 360 || [[User:Askhadulin|Askhadulin]] || 1
+|-
+| 360 || [[User:Mmmhj2|Mmmhj2]] || 1
+|-
+| 360 || [[User:116.253.141.228|116.253.141.228]] || 1
+|-
+| 360 || [[User:Skyicecn1|Skyicecn1]] || 1
+|-
+| 360 || [[User:Jeremylin0511|Jeremylin0511]] || 1
+|-
+| 360 || [[User:Headogy|Headogy]] || 1
+|-
+| 360 || [[User:114.246.35.135|114.246.35.135]] || 1
+|-
+| 360 || [[User:translatewiki>Xiplus|translatewiki>Xiplus]] || 1
+|-
+| 360 || [[User:Mewnojs|Mewnojs]] || 1
+|-
+| 360 || [[User:Louis0921gee|Louis0921gee]] || 1
+|-
+| 360 || [[User:HaydenWong2016|HaydenWong2016]] || 1
+|-
+| 360 || [[User:Hidden User No37|Hidden User No37]] || 1
+|-
+| 360 || [[User:Powupbot|Powupbot]] || 1
+|-
+| 360 || [[User:Kakagou12341|Kakagou12341]] || 1
+|-
+| 360 || [[User:127.0.0.1|127.0.0.1]] || 1
+|-
+| 360 || [[User:IllusionWing49334@legacy41490275|IllusionWing49334@legacy41490275]] || 1
+|}
