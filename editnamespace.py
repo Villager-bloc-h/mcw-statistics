@@ -26,7 +26,7 @@ for rec in contribs_data:
 
 # 将命名空间名称和编辑数写入表格
 row = 2
-for (ns, ns_name), count in sorted(edit_count.items(), key=lambda kv: kv[0][0]):
+for (ns, ns_name), count in edit_count.items():
     ws[f'A{row}'] = ns
     ws[f'B{row}'] = ns_name
     ws[f'C{row}'] = count
@@ -35,7 +35,7 @@ for (ns, ns_name), count in sorted(edit_count.items(), key=lambda kv: kv[0][0]):
 
 # 将百分比写入表格
 row = 2
-for (ns, ns_name), count in sorted(edit_count.items(), key=lambda kv: kv[0][0]):
+for (ns, ns_name), count in edit_count.items():
     percentage = (count / total_edit) * 100
     ws[f'D{row}'] = f"{percentage:.2f}%"
     row += 1
@@ -45,6 +45,6 @@ ws.cell(row=row, column=3).value = total_edit
 ws.cell(row=row, column=4).value = "100.00%"
 
 current_time = datafile[-14:]
-wb.save(f"{username}-editnamespace-{current_time}.xlsx")
+base.output(f"{username}-editnamespace-{current_time}.xlsx", wb, "xlsx")
 
 print(f"结果已保存至{username}-editnamespace-{current_time}.xlsx")

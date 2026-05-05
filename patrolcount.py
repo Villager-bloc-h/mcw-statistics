@@ -1,6 +1,5 @@
 import json
 import os
-import time
 from datetime import datetime
 
 import openpyxl
@@ -12,7 +11,7 @@ params = {
     "format": "json",
     "list": "logevents",
     "formatversion": 2,
-    "leprop": "user",
+    "leprop": "user|details",
     "leaction": "patrol/patrol",
     "lelimit": "max",
 }
@@ -50,7 +49,7 @@ base.login()
 print("启动成功", end='\n\n')
 
 while True: # 获取所有巡查日志的内容
-    time.sleep(3)
+    base.sleep()
 
     if last_lecontinue != "":  # 不是首次循环，使用这个继续
         last_params = params.copy()
@@ -64,6 +63,8 @@ while True: # 获取所有巡查日志的内容
     print(f"成功获取第{loop_count}组数据")
 
     for item in le_data['query']['logevents']:
+        if item["params"].get("auto", False):  # 自动巡查操作不统计
+            continue
         username = item["user"]
         # 更新计数：存在则+1，不存在则初始化为1
         user_list[username] = user_list.get(username, 0) + 1
@@ -113,7 +114,7 @@ for idx, (user, count) in enumerate(sorted_data):
     ws.cell(row=row_idx, column=2, value=user)
     ws.cell(row=row_idx, column=3, value=count)
 
-wb.save(excel_filename)
+base.output(excel_filename, wb, "xlsx")
 print(f"Excel结果已保存至{excel_filename}")
 
 if os.path.exists("patrolcount_backup.json"):

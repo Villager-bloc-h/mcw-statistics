@@ -1,4 +1,3 @@
-import time
 from datetime import datetime, timedelta, timezone
 import openpyxl
 
@@ -20,9 +19,10 @@ if mode == "standard": # 标准模式
         day1 = 25
 
     end_time = now.replace(day=day2, hour=0, minute=0, second=0)
-    start_time = end_time.replace(day=day1, month=month - 1)
-    if start_time.month == 0:
-        start_time = start_time.replace(year=year - 1, month=12)
+    if month == 1:
+        start_time = end_time.replace(year=year - 1, month=12)
+    else:
+        start_time = end_time.replace(day=day1, month=month - 1)
 
     start_date_str = f"{start_time.year}年{start_time.month}月{start_time.day}日0时"
     end_date_str = f"{end_time.year}年{end_time.month}月{end_time.day}日0时"
@@ -81,7 +81,7 @@ base.login()
 print("启动成功", end='\n\n')
 
 while True: # 获取过去一个月的最近更改详情
-    time.sleep(3)
+    base.sleep()
 
     if last_rccontinue != "": # 不是首次循环，使用这个继续
         last_params = params.copy()
@@ -142,9 +142,12 @@ for user in usergroups_data['query']['allusers']:
 
 sorted_data = []
 
-# 过滤IP用户，将用户组信息放入列表
+# 过滤IP用户和临时用户，将用户组信息放入列表
 for user, count in user_list.items():
     if base.is_ip_address(user):
+        continue
+
+    if user.startswith("~20"):
         continue
 
     # 获取用户组信息
@@ -175,7 +178,7 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
     ws.cell(row=row_idx, column=3, value=count)
     ws.cell(row=row_idx, column=4, value=group_name)
 
-wb.save(excel_filename)
+base.output(excel_filename, wb, "xlsx")
 print(f"Excel结果已保存至{excel_filename}")
 
 # 将排序后的内容变为wikitable
@@ -206,8 +209,7 @@ for idx, (user, count, group_name) in enumerate(sorted_data):
 wiki_content += "|}"
 
 # 将wikitable写入文本文件
-with open(txt_filename, "w", encoding="utf-8") as f:
-    f.write(wiki_content)
+base.output(txt_filename, wiki_content, "txt")
 print(f"Wiki表格已保存至{txt_filename}")
 
 '''

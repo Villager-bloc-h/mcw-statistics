@@ -1,7 +1,5 @@
-import time
 import sys
 from datetime import datetime
-import json
 
 import base
 
@@ -34,7 +32,7 @@ base.login()
 print("启动成功", end='\n\n')
 
 while True:
-    time.sleep(3)
+    base.sleep()
 
     if last_uccontinue != "":
         last_params = params.copy()
@@ -66,7 +64,6 @@ while True:
 
 contribs_result = contribs_result[::-1]
 
-with open(f'usercontribs-{username}-{current_time}.json', 'w', encoding='utf-8') as file:
-    json.dump(contribs_result, file, ensure_ascii=False, indent=4)
+base.output(f'usercontribs-{username}-{current_time}.json', contribs_result, "json")
 
 print(f"结果已保存至usercontribs-{username}-{current_time}.json")

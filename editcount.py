@@ -1,6 +1,5 @@
 import json
 import os
-import time
 from datetime import datetime
 
 import openpyxl
@@ -51,7 +50,7 @@ base.login()
 print("启动成功", end='\n\n')
 
 while True: # 获取所有修订版本的内容
-    time.sleep(3)
+    base.sleep()
 
     if last_arvcontinue != "":  # 不是首次循环，使用这个继续
         last_params = params.copy()
@@ -123,7 +122,7 @@ if hidden:
     ws.cell(row=current_row, column=2, value="（用户名已移除）")
     ws.cell(row=current_row, column=3, value=hidden)
 
-wb.save(excel_filename)
+base.output(excel_filename, wb, "xlsx")
 print(f"Excel结果已保存至{excel_filename}")
 
 TOP_N = 1000
@@ -147,7 +146,7 @@ if len(sorted_data) > TOP_N:
         ws_top.cell(row=current_row, column=2, value="（用户名已移除）")
         ws_top.cell(row=current_row, column=3, value=hidden)
 
-    wb_top.save(top_filename)
+    base.output(top_filename, wb_top, "xlsx")
     print(f"前{TOP_N}名已保存至{top_filename}")
 
 if os.path.exists("editcount_backup.json"):

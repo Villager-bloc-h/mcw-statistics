@@ -1,4 +1,3 @@
-import time
 import sys
 from datetime import datetime, timedelta
 
@@ -37,7 +36,7 @@ base.login()
 print("启动成功", end='\n\n')
 
 while True:
-    time.sleep(3)
+    base.sleep()
 
     if last_lecontinue != "":
         last_params = params.copy()
@@ -140,6 +139,6 @@ chart_anchor_col = len(sorted_users) + 3
 chart_anchor_cell = f"{openpyxl.utils.get_column_letter(chart_anchor_col)}1"
 ws.add_chart(chart, chart_anchor_cell)
 
-wb.save(f"patrolintegration-{current_time}.xlsx")
+base.output(f"patrolintegration-{current_time}.xlsx", wb, "xlsx")
 
 print(f"结果已保存至patrolintegration-{current_time}.xlsx")
